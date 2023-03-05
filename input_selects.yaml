@@ -1,0 +1,51 @@
+hvac_living_hvane:
+    name: 'Horizontal vane control - Sala'
+    options:
+      - 'auto'
+      - '1_left'
+      - '2'
+      - '3'
+      - '4'
+      - '5_right'
+      - 'split'
+      - 'swing'
+    initial: auto
+
+hvac_bedroom_hvane:
+    name: 'Horizontal vane control - Camera'
+    options:
+      - 'auto'
+      - '1_left'
+      - '2'
+      - '3'
+      - '4'
+      - '5_right'
+      - 'split'
+      - 'swing'
+    initial: auto
+
+hvac_tommy_hvane:
+    name: 'Horizontal vane control - Camera Tommaso'
+    options:
+      - 'auto'
+      - '1_left'
+      - '2'
+      - '3'
+      - '4'
+      - '5_right'
+      - 'split'
+      - 'swing'
+    initial: auto
+
+hvac_study_hvane:
+    name: 'Horizontal vane control - Studio'
+    options:
+      - 'auto'
+      - '1_left'
+      - '2'
+      - '3'
+      - '4'
+      - '5_right'
+      - 'split'
+      - 'swing'
+    initial: auto

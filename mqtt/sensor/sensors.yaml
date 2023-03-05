@@ -1,0 +1,250 @@
+# Shelly 1PM ingresso
+- name: "Luce ingresso P"
+  state_topic: "shellies/shelly1pm-ingresso/relay/0/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "Luce ingresso E"
+  state_topic: "shellies/shelly1pm-ingresso/relay/0/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "ingresso T"
+  state_topic: "shellies/shelly1pm-ingresso/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: "ingresso Talarm"
+  state_topic: "shellies/shelly1pm-ingresso/overtemperature"
+  qos: 0
+
+# Shelly 2.5 luci sala
+- name: "Flos Aim P"
+  state_topic: "shellies/shelly25-luci_sala/relay/0/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "Flos Aim E"
+  state_topic: "shellies/shelly25-luci_sala/relay/0/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "Led divano P"
+  state_topic: "shellies/shelly25-luci_sala/relay/1/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "Led divano E"
+  state_topic: "shellies/shelly25-luci_sala/relay/1/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "luci sala T"
+  state_topic: "shellies/shelly25-luci_sala/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: "luci sala Talarm"
+  state_topic: "shellies/shelly25-luci_sala/overtemperature"
+  qos: 0
+
+# Shelly 2.5 led cucina
+# Il relay 0 non viene monitorato perché è usato come un pulsante
+- name: "Led cucina P"
+  state_topic: "shellies/shelly25-luci_cucina/relay/1/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "Led cucina E"
+  state_topic: "shellies/shelly25-luci_cucina/relay/1/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "led cucina T"
+  state_topic: "shellies/shelly25-luci_cucina/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: "led cucina Talarm"
+  state_topic: "shellies/shelly25-luci_cucina/overtemperature"
+  qos: 0
+
+# Shelly 2.5 luci studio
+- name: "Luce studio P"
+  state_topic: "shellies/shelly25-luci_studio/relay/0/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "Luce studio E"
+  state_topic: "shellies/shelly25-luci_studio/relay/0/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "Faretti studio P"
+  state_topic: "shellies/shelly25-luci_studio/relay/1/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "Faretti studio E"
+  state_topic: "shellies/shelly25-luci_studio/relay/1/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "luci studio T"
+  state_topic: "shellies/shelly25-luci_studio/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: "luci studio Talarm"
+  state_topic: "shellies/shelly25-luci_studio/overtemperature"
+  qos: 0
+
+# Shelly 2.5 tapparella cucina
+- name: "kitchen_cover_P"
+  state_topic: "shellies/shelly25-tapp_cucina/roller/0/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "kitchen_cover_E"
+  state_topic: "shellies/shelly25-tapp_cucina/roller/0/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "kitchen_cover_T"
+  state_topic: "shellies/shelly25-tapp_cucina/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: " kitchen_cover_Talarm"
+  state_topic: "shellies/shelly25-tapp_cucina/overtemperature"
+  qos: 0
+
+# Shelly 2.5 tapparella sala balcone
+- name: "living_big_cover_P"
+  state_topic: "shellies/shelly25-tapp_sala_big/roller/0/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "living_big_cover_E"
+  state_topic: "shellies/shelly25-tapp_sala_big/roller/0/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "living_big_cover_T"
+  state_topic: "shellies/shelly25-tapp_sala_big/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: "living_big_cover_Talarm"
+  state_topic: "shellies/shelly25-tapp_sala_big/overtemperature"
+  qos: 0
+
+# Shelly 2.5 tapparella sala finestra
+- name: "living_small_cover_P"
+  state_topic: "shellies/shelly25-tapp_sala_small/roller/0/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "living_small_cover_E"
+  state_topic: "shellies/shelly25-tapp_sala_small/roller/0/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "living_small_cover_T"
+  state_topic: "shellies/shelly25-tapp_sala_small/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: "living_small_cover_Talarm"
+  state_topic: "shellies/shelly25-tapp_sala_small/overtemperature"
+  qos: 0
+
+# Shelly 2.5 tapparella camera
+- name: "bedroom_cover_P"
+  state_topic: "shellies/shelly25-tapp_camera/roller/0/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "bedroom_cover_E"
+  state_topic: "shellies/shelly25-tapp_camera/roller/0/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "bedroom_cover_T"
+  state_topic: "shellies/shelly25-tapp_camera/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: "bedroom_cover_Talarm"
+  state_topic: "shellies/shelly25-tapp_camera/overtemperature"
+  qos: 0
+
+# Shelly 2.5 tapparella Tommy
+- name: "tommy_cover_P"
+  state_topic: "shellies/shelly25-tapp_Tommaso/roller/0/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "tommy_cover_E"
+  state_topic: "shellies/shelly25-tapp_Tommaso/roller/0/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "tommy_cover_T"
+  state_topic: "shellies/shelly25-tapp_Tommaso/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: "tommy_cover_Talarm"
+  state_topic: "shellies/shelly25-tapp_Tommaso/overtemperature"
+  qos: 0
+
+# Shelly 2.5 tapparella studio
+- name: "study_cover_P"
+  state_topic: "shellies/shelly25-tapp_studio/roller/0/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "study_cover_E"
+  state_topic: "shellies/shelly25-tapp_studio/roller/0/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "study_cover_T"
+  state_topic: "shellies/shelly25-tapp_studio/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: "study_cover_Talarm"
+  state_topic: "shellies/shelly25-tapp_studio/overtemperature"
+  qos: 0
+
+# Shelly 2.5 tapparella bagnetto
+- name: "bathroom_cover_P"
+  state_topic: "shellies/shelly25-tapp_bagnetto/roller/0/power"
+  qos: 0
+  unit_of_measurement: "W"
+- name: "bathroom_cover_E"
+  state_topic: "shellies/shelly25-tapp_bagnetto/roller/0/energy"
+  qos: 0
+  unit_of_measurement: "Wh"
+  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+- name: "bathroom_cover_T"
+  state_topic: "shellies/shelly25-tapp_bagnetto/temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+- name: "bathroom_cover_Talarm"
+  state_topic: "shellies/shelly25-tapp_bagnetto/overtemperature"
+  qos: 0
+
+# Shelly H&T 1
+- name: "ht_1_T"
+  state_topic: "shellies/shellyht-9551AE/sensor/temperature"
+  value_template: "{{ value }}"
+  unit_of_measurement: "°C"
+  icon: mdi:thermometer
+- name: "ht_1_H"
+  state_topic: "shellies/shellyht-9551AE/sensor/humidity"
+  value_template: "{{ value }}"
+  unit_of_measurement: "%"
+  icon: mdi:water-percent
+- name: "ht_1_battery"
+  state_topic: "shellies/shellyht-9551AE/sensor/battery"
+  value_template: "{{ value }}"
+  unit_of_measurement: "%"
+  icon: mdi:battery
+
+# Shelly H&T 2
+- name: "ht_2_T"
+  state_topic: "shellies/shellyht-9554BF/sensor/temperature"
+  value_template: "{{ value }}"
+  unit_of_measurement: "°C"
+  icon: mdi:thermometer
+- name: "ht_2_H"
+  state_topic: "shellies/shellyht-9554BF/sensor/humidity"
+  value_template: "{{ value }}"
+  unit_of_measurement: "%"
+  icon: mdi:water-percent
+- name: "ht_2_battery"
+  state_topic: "shellies/shellyht-9554BF/sensor/battery"
+  value_template: "{{ value }}"
+  unit_of_measurement: "%"
+  icon: mdi:battery

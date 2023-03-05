@@ -1,0 +1,125 @@
+# Shelly 1PM ingresso
+- name: "Ingresso"
+  state_topic: "shellies/shelly1pm-ingresso/relay/0"
+  command_topic: "shellies/shelly1pm-ingresso/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+
+# Shelly 2.5 luci sala
+- name: "Flos Aim"
+  state_topic: "shellies/shelly25-luci_sala/relay/0"
+  command_topic: "shellies/shelly25-luci_sala/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: false
+- name: "led divano"
+  state_topic: "shellies/shelly25-luci_sala/relay/1"
+  command_topic: "shellies/shelly25-luci_sala/relay/1/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+# Shelly 1 Flos IC T2
+- name: "Flos IC T2"
+  state_topic: "shellies/shelly1-ic_t2/relay/0"
+  command_topic: "shellies/shelly1-ic_t2/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+
+# Shelly 1 luce penisola
+- name: "Luce penisola"
+  state_topic: "shellies/shelly1-penisola/relay/0"
+  command_topic: "shellies/shelly1-penisola/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+
+# Sonoff mini led sottopensili
+- name: "Led pensili"
+  state_topic: "stat/tasmota-led_pensili/RESULT"
+  state_value_template: "{{ value_json.POWER }}"
+  command_topic: "cmnd/tasmota-led_pensili/POWER"
+  availability_topic: "tele/tasmota-led_pensili/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+# Sonoff mini camera
+- name: "Flos Ariette"
+  state_topic: "stat/tasmota-camera/RESULT"
+  state_value_template: "{{ value_json.POWER }}"
+  command_topic: "cmnd/tasmota-camera/POWER"
+  availability_topic: "tele/tasmota-camera/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+# Sonoff mini Tommy
+- name: "Tommaso"
+  state_topic: "stat/tasmota-tommy/RESULT"
+  state_value_template: "{{ value_json.POWER }}"
+  command_topic: "cmnd/tasmota-tommy/POWER"
+  availability_topic: "tele/tasmota-tommy/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+# Shelly 1 bagno
+- name: "Bagno"
+  state_topic: "shellies/shelly1-bagno/relay/0"
+  command_topic: "shellies/shelly1-bagno/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+
+# Shelly 1 corridoio
+- name: "Corridoio"
+  state_topic: "shellies/shelly1-corridoio/relay/0"
+  command_topic: "shellies/shelly1-corridoio/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+
+# Shelly 2.5 luci studio
+- name: "luce studio"
+  state_topic: "shellies/shelly25-luci_studio/relay/0"
+  command_topic: "shellies/shelly25-luci_studio/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: false
+- name: "faretti studio"
+  state_topic: "shellies/shelly25-luci_studio/relay/1"
+  command_topic: "shellies/shelly25-luci_studio/relay/1/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+
+# Shelly 1 bagnetto
+- name: "Bagnetto"
+  state_topic: "shellies/shelly1-bagnetto/relay/0"
+  command_topic: "shellies/shelly1-bagnetto/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false

@@ -1,0 +1,31 @@
+- platform: group
+  name: living
+  entities:
+    - cover.living_small
+    - cover.living_big
+
+- platform: group
+  name: zona_giorno
+  entities:
+    - cover.kitchen
+    - cover.living_small
+    - cover.living_big
+
+- platform: group
+  name: zona_notte
+  entities:
+    - cover.bedroom
+    - cover.study
+    - cover.tommy
+    - cover.bathroom
+
+- platform: group
+  name: all
+  entities:
+    - cover.kitchen
+    - cover.living_small
+    - cover.living_big
+    - cover.bedroom
+    - cover.study
+    - cover.tommy
+    - cover.bathroom

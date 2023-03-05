@@ -1,0 +1,286 @@
+goodmorning_raw:
+  alias: Buongiorno base
+  sequence:
+  - condition: state
+    entity_id: 'device_tracker.iphone_di_salvatore'
+    state: 'home'
+  - service: script.turn_on
+    data:
+      entity_id: script.play_music
+      variables:
+        forced: 0
+        shuffle: true
+        random: 'on'
+        volume_level: 10
+        media_content_type: "SPOTIFY"
+        media_player_id: media_player.multi_room
+        multi_room_option: "multi room"
+  - service: script.turn_on
+    data:
+      entity_id: script.light_up_zone
+      variables:
+        cover_entity: cover.zona_giorno
+        cover_position: 100
+        light_entity: light.led_pensili
+  mode: single
+
+goodmorning:
+  alias: Buongiorno
+  sequence:
+  - condition: state
+    entity_id: 'device_tracker.iphone_di_salvatore'
+    state: 'home'
+  - service: script.turn_on
+    data:
+      entity_id: script.goodmorning_raw
+  - service: script.turn_on
+    data:
+      entity_id: script.light_up_zone
+      variables:
+        cover_entity: cover.bedroom
+        cover_position: 55
+        light_entity: 'light.corridoio'
+  - service: script.turn_on
+    data:
+      entity_id: script.light_up_zone
+      variables:
+        cover_entity: cover.bathroom
+        cover_position: 100
+        light_entity: ''
+  mode: single
+
+goodmorning_all:
+  alias: Buongiorno a tutti
+  sequence:
+  - condition: state
+    entity_id: 'device_tracker.iphone_di_salvatore'
+    state: 'home'
+  - service: script.turn_on
+    data:
+      entity_id: script.goodmorning_raw
+  - service: script.turn_on
+    data:
+      entity_id: script.light_up_zone
+      variables:
+        cover_entity: cover.bedroom
+        cover_position: 100
+        light_entity: 'light.corridoio'
+  - service: script.turn_on
+    data:
+      entity_id: script.light_up_zone
+      variables:
+        cover_entity: cover.bathroom
+        cover_position: 100
+        light_entity: ''
+  - service: script.turn_on
+    data:
+      entity_id: script.light_up_zone
+      variables:
+        cover_entity: cover.tommy
+        cover_position: 100
+        light_entity: ''
+  - service: script.turn_on
+    data:
+      entity_id: script.light_up_zone
+      variables:
+        cover_entity: cover.study
+        cover_position: 100
+        light_entity: ''
+  mode: single
+
+living:
+  sequence:
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.luci_cucina
+  - condition: state
+    entity_id: group.luci_sala
+    state: 'off'
+  - service: light.turn_on
+    data:
+      entity_id: light.led_divano
+  mode: single
+
+tv:
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.flos_ic_t2
+  - delay: "00:00:02"
+  - service: light.turn_off
+    data:
+      entity_id: light.flos_aim
+  - service: light.turn_off
+    data:
+      entity_id: light.led_divano
+  - service: light.turn_off
+    data:
+      entity_id: light.ingresso
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.luci_cucina
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.luci_zona_notte
+  mode: single
+
+kitchen:
+  sequence:
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.luci_sala
+  - condition: state
+    entity_id: group.luci_cucina
+    state: 'off'
+  - service: light.turn_on
+    data:
+      entity_id: light.led_cucina_virtual
+  mode: single
+
+kitchen_table:
+  sequence:
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.luci_sala
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.luci_zona_notte
+  - service: light.turn_on
+    data:
+      entity_id: light.luce_penisola
+  mode: single
+
+exit:
+  sequence:
+  - service: cover.close_cover
+    data:
+      entity_id: cover.all
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.luci
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.media_players
+  - service: light.turn_on
+    data:
+      entity_id: light.ingresso
+  - service: script.turn_on
+    data:
+      entity_id: script.climate_off
+  - delay: "00:03:00"
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.luci
+  mode: single
+
+goodnight:
+  sequence:
+  - service: cover.close_cover
+    data:
+      entity_id: cover.all
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.luci
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.media_players
+  mode: single
+
+welcome:
+  sequence:
+  - service: script.turn_on
+    data:
+      entity_id: script.light_up_zone
+      variables:
+        cover_entity: cover.all
+        cover_position: 100
+        light_entity: light.ingresso
+#  - service: script.turn_on
+#    data:
+#      entity_id: script.text_to_speech
+#      variables:
+#        media_player_id: media_player.multi_room
+#        message: "Ben tornato!"
+#        volume_level: 15
+
+privacy:
+  sequence:
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.all
+        position: 25
+
+air_flow:
+  sequence:
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.zona_giorno
+        position: 35
+
+kitchen_air_only:
+  sequence:
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.kitchen
+        position: 50
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.living_big
+        position: 0
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.living_small
+        position: 0
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.zona_notte
+        position: 0
+
+desk:
+  sequence:
+    - service: light.turn_on
+      data:
+        color_name: white #darkgoldenrod
+        brightness_pct: 100
+      target:
+        entity_id: light.led_desk
+
+desk_night:
+  sequence:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.luci_studio
+    - service: light.turn_on
+      data:
+        color_name: white #darkgoldenrod
+        brightness_pct: 30
+      target:
+        entity_id: light.led_desk
+
+desk_night_alone:
+  sequence:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.luci
+    - service: light.turn_on
+      data:
+        color_name: white #darkgoldenrod
+        brightness_pct: 30
+      target:
+        entity_id: light.led_desk
+
+climate_off:
+  sequence:
+    - service: climate.turn_off
+      data:
+        entity_id: climate.hvac_living
+    - service: climate.turn_off
+      data:
+        entity_id: climate.hvac_bedroom
+    - service: climate.turn_off
+      data:
+        entity_id: climate.hvac_study
+    - service: climate.turn_off
+      data:
+        entity_id: climate.hvac_tommy
+    

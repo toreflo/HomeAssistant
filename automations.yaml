@@ -1,0 +1,27 @@
+- id: '1678052994428'
+  alias: Shelly i3 cucina
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: shellies/shellyi3-cucina/input_event/0
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json.event == ''S'' or trigger.payload_json.event
+      == ''SS'' or trigger.payload_json.event == ''L'' }}'
+  action:
+  - service: logbook.log
+    data:
+      name: automation Sheylly i3 cucina
+      message: Payload is {{ trigger.payload_json.event }}, count = {{ trigger.payload_json.event_cnt
+        }}
+  - service_template: "{% if trigger.payload_json.event == \"SL\" %}\n  script.turn_on\n{%
+      elif trigger.payload_json.event == \"L\" %}\n  {% if states('group.luci_cucina')
+      == 'on' %}\n    homeassistant.turn_off\n  {% else %}\n    homeassistant.turn_on\n
+      \ {% endif %}\n{% else %}\n  light.toggle\n{% endif %}\n"
+    data_template:
+      entity_id: "{% if trigger.payload_json.event == \"S\" %}\n  light.led_pensili\n{%
+        elif trigger.payload_json.event == \"SS\" %}\n  light.ingresso\n{% elif trigger.payload_json.event
+        == \"L\" %}\n  group.luci_cucina\n{% else %}\n  {% if states('group.luci_cucina')
+        == 'on' %}\n    script.living\n  {% else %}\n    script.kitchen\n  {% endif
+        %}\n{% endif %}\n"
+  mode: single

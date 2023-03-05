@@ -1,0 +1,10 @@
+# Led cucina (luce virtuale)
+- platform: template
+  lights:
+    led_cucina_virtual:
+      friendly_name: "Led cucina"
+      value_template: "{{ states('sensor.led_cucina_p') | float >= states('input_number.led_cucina_min_power') | float }}"
+      turn_on:
+        service: script.turn_on_led_cucina
+      turn_off:
+        service: script.turn_off_led_cucina

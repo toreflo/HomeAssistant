@@ -1,0 +1,127 @@
+# Condizionatori
+d_energy_mel_big:
+  source: sensor.mel_big_energy
+  cycle: daily
+m_energy_mel_big:
+  source: sensor.mel_big_energy
+  cycle: monthly
+d_energy_mel_small:
+  source: sensor.mel_small_energy
+  cycle: daily
+m_energy_mel_small:
+  source: sensor.mel_small_energy
+  cycle: monthly
+
+# Luce ingresso
+d_energy_luce_ingresso:
+  source: sensor.luce_ingresso_e
+  cycle: daily
+m_energy_luce_ingresso:
+  source: sensor.luce_ingresso_e
+  cycle: monthly
+
+# Luci sala
+d_energy_flos_aim:
+  source: sensor.flos_aim_e
+  cycle: daily
+m_energy_flos_aim:
+  source: sensor.flos_aim_e
+  cycle: monthly
+d_energy_led_divano:
+  source: sensor.led_divano_e
+  cycle: daily
+m_energy_led_divano:
+  source: sensor.led_divano_e
+  cycle: monthly
+
+# Luci cucina
+d_energy_led_cucina:
+  source: sensor.led_cucina_e
+  cycle: daily
+m_energy_led_cucina:
+  source: sensor.led_cucina_e
+  cycle: monthly
+
+# Luci studio
+d_energy_luce_studio:
+  source: sensor.luce_studio_e
+  cycle: daily
+m_energy_luce_studio:
+  source: sensor.luce_studio_e
+  cycle: monthly
+d_energy_faretti_studio:
+  source: sensor.faretti_studio_e
+  cycle: daily
+m_energy_faretti_studio:
+  source: sensor.faretti_studio_e
+  cycle: monthly
+
+# Tapparella cucina
+cover_d_energy_kitchen:
+  source: sensor.kitchen_cover_e
+  cycle: daily
+cover_m_energy_kitchen:
+  source: sensor.kitchen_cover_e
+  cycle: monthly
+
+# Tapparella sala balcone
+cover_d_energy_living_big:
+  source: sensor.living_big_cover_e
+  cycle: daily
+cover_m_energy_living_big:
+  source: sensor.living_big_cover_e
+  cycle: monthly
+
+# Tapparella sala finestra
+cover_d_energy_living_small:
+  source: sensor.living_small_cover_e
+  cycle: daily
+cover_m_energy_living_small:
+  source: sensor.living_small_cover_e
+  cycle: monthly
+
+# Tapparella camera
+cover_d_energy_bedroom:
+  source: sensor.bedroom_cover_e
+  cycle: daily
+cover_m_energy_bedroom:
+  source: sensor.bedroom_cover_e
+  cycle: monthly
+
+# Tapparella Tommaso
+cover_d_energy_tommy:
+  source: sensor.tommy_cover_e
+  cycle: daily
+cover_m_energy_tommy:
+  source: sensor.tommy_cover_e
+  cycle: monthly
+
+# Tapparella studio
+cover_d_energy_study:
+  source: sensor.study_cover_e
+  cycle: daily
+cover_m_energy_study:
+  source: sensor.study_cover_e
+  cycle: monthly
+
+# Tapparella bagnetto
+cover_d_energy_bathroom:
+  source: sensor.bathroom_cover_e
+  cycle: daily
+cover_m_energy_bathroom:
+  source: sensor.bathroom_cover_e
+  cycle: monthly
+
+# Rete
+network_in_daily:
+  source: sensor.network_in_eth0
+  cycle: daily
+network_in_monthly:
+  source: sensor.network_in_eth0
+  cycle: monthly
+network_out_daily:
+  source: sensor.network_out_eth0
+  cycle: daily
+network_out_monthly:
+  source: sensor.network_out_eth0
+  cycle: monthly

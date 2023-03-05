@@ -1,0 +1,35 @@
+#Shelly 2.5 luci cucina
+# Il relay 1 è in realtà sempre chiuso per fornire potenza all'alimentatore
+- name: "Pulsante led cucina"
+  state_topic: "shellies/shelly25-luci_cucina/relay/0"
+  command_topic: "shellies/shelly25-luci_cucina/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: false
+- name: "Alimentatore luce cucina"
+  state_topic: "shellies/shelly25-luci_cucina/relay/1"
+  command_topic: "shellies/shelly25-luci_cucina/relay/1/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+
+#Shelly 1 balcone
+- name: "Presa balcone"
+  state_topic: "shellies/shelly1-balcone/relay/0"
+  command_topic: "shellies/shelly1-balcone/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+
+#Shelly 1 caffe
+- name: "Macchina caffè"
+  state_topic: "shellies/shelly1-caffe/relay/0"
+  command_topic: "shellies/shelly1-caffe/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  retain: false

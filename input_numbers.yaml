@@ -1,0 +1,64 @@
+led_cucina_brightness:
+  name: Luminosita led cucina
+  initial: 0
+  min: 0
+  max: 100
+  step: 1
+led_cucina_min_power:
+  initial: 1
+  min: 0
+  max: 1
+led_cucina_max_power:
+  initial: 80
+  min: 79
+  max: 80
+epsilon:
+  initial: 2
+  min: 1
+  max: 2
+
+media_volume:
+  initial: 10
+  min: 0
+  max: 100
+  step: 1
+
+irrigation_duration:
+  min: 1
+  max: 3600
+
+irrigation_period:
+  min: 1
+  max: 100
+
+hvac_living_timer:
+  min: 0
+  max: 600
+
+hvac_living_counter:
+  min: 0
+  max: 600
+
+hvac_bedroom_timer:
+  min: 0
+  max: 600
+
+hvac_bedroom_counter:
+  min: 0
+  max: 600
+
+hvac_study_timer:
+  min: 0
+  max: 600
+
+hvac_study_counter:
+  min: 0
+  max: 600
+
+hvac_tommy_timer:
+  min: 0
+  max: 600
+
+hvac_tommy_counter:
+  min: 0
+  max: 600
