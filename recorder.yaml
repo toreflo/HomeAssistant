@@ -1,0 +1,59 @@
+purge_keep_days: 100
+include:
+  domains:
+    - sensor
+  entities:
+    - device_tracker.iphone_di_salvatore
+    - device_tracker.iphone_di_gloria
+    - binary_sensor.rpi_power_status
+    - switch.alimentatore_luce_cucina
+    - binary_sensor.pump
+    - input_boolean.home_occupied
+    - input_boolean.salvatore_connected
+    - input_boolean.gloria_connected
+exclude:
+  entities:
+    - sensor.date
+    - sensor.date_time
+    - sensor.time
+    - sensor.time_utc
+    - sensor.time_date
+    - sensor.git_alarm
+    - sensor.flos_aim_e
+    - sensor.luce_ingresso_e
+    - sensor.led_divano_e
+    - sensor.led_cucina_e
+    - sensor.luce_studio_e
+    - sensor.faretti_studio_e
+    - sensor.kitchen_cover_e
+    - sensor.living_big_cover_e
+    - sensor.living_small_cover_e
+    - sensor.bedroom_cover_e
+    - sensor.tommy_cover_e
+    - sensor.study_cover_e
+    - sensor.bathroom_cover_e
+    - sensor.hvac_living_energy
+    - sensor.hvac_bedroom_energy
+    - sensor.hvac_study_energy
+    - sensor.hvac_tommy_energy
+    - sensor.led_cucina_target_power
+    - sensor.mel_big_energy
+    - sensor.mel_small_energy
+    - sensor.db_size
+  entity_globs:
+    - sensor.weather_*
+    - sensor.iphone*
+    - sensor.salvatore_s_*
+    - switch.salvatore_s_*
+    - sensor.*echo_dot_*
+    - switch.*echo_dot_*
+    - sensor.multi_room*
+    - switch.multi_room*
+    - sensor.ovunque*
+    - switch.ovunque*
+    - sensor.this_device_*
+    - switch.this_device_*
+    - sensor.network_in_eth0
+    - sensor.network_out_eth0
+    - sensor.*random*
+    - sensor.*cover_position

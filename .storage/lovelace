@@ -2431,10 +2431,7 @@
           "panel": true,
           "visible": [
             {
-              "user": "0a1a5fef720a4e3e95c9354e5586c5a2"
-            },
-            {
-              "user": "2bfba91451324e8c971f9028ea7f2111"
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
             }
           ],
           "badges": [],
@@ -2659,9 +2656,11 @@
                       "entity": "sensor.disk_use_percent"
                     },
                     {
-                      "type": "sensor",
+                      "hours_to_show": 24,
                       "graph": "line",
-                      "entity": "sensor.hass_db_size"
+                      "type": "sensor",
+                      "entity": "sensor.db_size",
+                      "detail": 1
                     }
                   ]
                 }
@@ -2670,24 +2669,6 @@
             {
               "type": "vertical-stack",
               "cards": [
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.speedtest_ping"
-                    },
-                    {
-                      "entity": "sensor.speedtest_download"
-                    },
-                    {
-                      "entity": "sensor.speedtest_upload"
-                    }
-                  ],
-                  "show_name": true,
-                  "show_icon": true,
-                  "show_state": true,
-                  "state_color": false
-                },
                 {
                   "type": "horizontal-stack",
                   "cards": [
