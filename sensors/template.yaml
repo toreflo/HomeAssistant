@@ -27,3 +27,16 @@
       value_template: "{{ state_attr('cover.study', 'current_position') }}"
     tommy_cover_position:
       value_template: "{{ state_attr('cover.tommy', 'current_position') }}"
+
+- platform: template
+  sensors:
+    gdb_backups_in_google_drive:
+      value_template: "{{ state_attr('sensor.backup_state', 'backups_in_google_drive') }}"
+    gdb_backups_in_home_assistant:
+      value_template: "{{ state_attr('sensor.backup_state', 'backups_in_home_assistant') }}"
+    gdb_size_in_google_drive:
+      value_template: "{{ state_attr('sensor.backup_state', 'size_in_google_drive') }}"
+    gdb_size_in_home_assistant:
+      value_template: "{{ state_attr('sensor.backup_state', 'size_in_home_assistant') }}"
+    gdb_free_space_in_google_drive:
+      value_template: "{{ state_attr('sensor.backup_state', 'free_space_in_google_drive') }}"

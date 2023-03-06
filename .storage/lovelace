@@ -33,7 +33,7 @@
               "entity": "input_boolean.gloria_connected"
             },
             {
-              "entity": "binary_sensor.updater"
+              "entity": "binary_sensor.backups_stale"
             }
           ],
           "cards": [
@@ -2713,6 +2713,61 @@
                       "type": "sensor",
                       "entity": "sensor.network_out_monthly",
                       "name": "OUT mensile"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "name": "#GD",
+                      "detail": 1,
+                      "entity": "sensor.gdb_backups_in_google_drive"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.gdb_size_in_google_drive",
+                      "detail": 1,
+                      "name": "GD size"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.gdb_free_space_in_google_drive",
+                      "name": "GD free",
+                      "detail": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "name": "#local",
+                      "detail": 1,
+                      "entity": "sensor.gdb_backups_in_home_assistant"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.gdb_size_in_home_assistant",
+                      "detail": 1,
+                      "name": "local size"
                     }
                   ]
                 }

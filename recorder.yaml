@@ -40,6 +40,11 @@ exclude:
     - sensor.mel_big_energy
     - sensor.mel_small_energy
     - sensor.db_size
+    - sensor.gdb_backups_in_google_drive
+    - sensor.gdb_backups_in_home_assistant
+    - sensor.gdb_size_in_google_drive
+    - sensor.gdb_size_in_home_assistant
+    - sensor.gdb_free_space_in_google_drive
   entity_globs:
     - sensor.weather_*
     - sensor.iphone*
