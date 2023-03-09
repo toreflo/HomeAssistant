@@ -2572,7 +2572,7 @@
               "entity": "binary_sensor.rpi_power_status"
             },
             {
-              "entity": "binary_sensor.snapshots_stale"
+              "entity": "binary_sensor.backups_stale"
             },
             {
               "entity": "sensor.ht_1_t"
@@ -2659,7 +2659,14 @@
                       "hours_to_show": 24,
                       "graph": "line",
                       "type": "sensor",
-                      "entity": "sensor.db_size",
+                      "entity": "sensor.mariadb_size",
+                      "detail": 1
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.influxdb_database_size",
                       "detail": 1
                     }
                   ]

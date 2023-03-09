@@ -11,6 +11,7 @@ tts:
   - platform: google_translate
 
 recorder: !include recorder.yaml
+#influxdb: !include influxdb.yaml
 automation: !include_dir_merge_list automations/
 sensor: !include_dir_merge_list sensors/
 script: !include_dir_merge_named scripts/
@@ -38,9 +39,10 @@ mqtt:
 http:
   use_x_forwarded_for: true
   trusted_proxies:
-    - 172.30.33.3
+    - 172.30.33.0/24
 
 api:
 
 alexa:
   smart_home:
+
