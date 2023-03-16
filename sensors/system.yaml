@@ -4,29 +4,14 @@
   unit_of_measurement: "M"
   value_template: '{{ ((value | int) / 1024 / 1024) | int }}'
 
-- platform: sql
-  db_url: !secret mariadb_url
-  queries:
-    - name: MariaDB Size
-      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1048576, 2) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
-      column: 'value'
-      unit_of_measurement: MB
-
-- platform: influxdb
-  host: 192.168.1.12
-  port: 8086
-  username: homeassistant
-  password: !secret influxdb_pass
-  scan_interval: 3600
-  queries:
-    - name: InfluxDB Database Size
-      unit_of_measurement: MB
-      value_template: "{{ (value | float(0) / 1024 /1024) | round(1) }}"
-      group_function: sum
-      measurement: '"monitor"."shard"'
-      database: _internal
-      where: '"database"=''homeassistant'' AND time > now() - 5m'
-      field: diskBytes
+# Definizione del sensore sostituita configurando l'opportuna integrazione "SQL"
+#- platform: sql
+#  db_url: !secret mariadb_url
+#  queries:
+#    - name: MariaDB Size
+#      query: "SELECT table_schema AS 'db_name', ROUND(SUM( data_length + index_length ) / 1024 / 1024, 2) AS 'size_mb' FROM information_schema.TABLES WHERE table_schema='homeassistant'"
+#      column: 'size_mb'
+#      unit_of_measurement: MB
 
 - platform: command_line
   name: Git alarm

@@ -46,3 +46,8 @@ api:
 alexa:
   smart_home:
 
+panel_iframe:
+  tasmoadmin:
+    title: TasmoAdmin
+    icon: mdi:lightbulb-on
+    url: http://192.168.1.12:9541

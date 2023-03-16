@@ -13,6 +13,9 @@
           "visible": [
             {
               "user": "f2983a1b4e6e44798a04a30a5437e107"
+            },
+            {
+              "user": "03461658bbca4f8b8ce43bda920ff694"
             }
           ],
           "icon": "mdi:home",
@@ -2387,10 +2390,7 @@
           "path": "h-and-t",
           "visible": [
             {
-              "user": "0a1a5fef720a4e3e95c9354e5586c5a2"
-            },
-            {
-              "user": "2bfba91451324e8c971f9028ea7f2111"
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
             }
           ],
           "panel": true,
@@ -2660,13 +2660,6 @@
                       "graph": "line",
                       "type": "sensor",
                       "entity": "sensor.mariadb_size",
-                      "detail": 1
-                    },
-                    {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "entity": "sensor.influxdb_database_size",
                       "detail": 1
                     }
                   ]
