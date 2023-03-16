@@ -805,6 +805,18 @@
                       "show_icon": true,
                       "show_state": false,
                       "icon": "mdi:bed"
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "entity": "switch.lucina_notte",
+                      "show_state": false,
+                      "icon": "mdi:sleep"
                     }
                   ]
                 },
