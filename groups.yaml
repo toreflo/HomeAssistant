@@ -24,6 +24,7 @@ luci_camera:
     name: Luci camera
     entities:
       - light.flos_ariette
+      - switch.lucina_notte
 
 luci_tommaso:
     name: Luci Tommaso

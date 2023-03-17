@@ -783,15 +783,15 @@
                   "square": false,
                   "cards": [
                     {
+                      "show_name": true,
+                      "show_icon": false,
                       "type": "button",
                       "tap_action": {
                         "action": "toggle"
                       },
                       "icon_height": "30px",
                       "name": " Camera",
-                      "entity": "light.flos_ariette",
-                      "show_name": true,
-                      "show_icon": false,
+                      "entity": "group.luci_camera",
                       "show_state": true
                     },
                     {

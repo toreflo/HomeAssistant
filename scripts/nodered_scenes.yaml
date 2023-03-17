@@ -3,3 +3,6 @@ sleeping_on:
 
 sleeping_off:
   sequence:
+
+goodmorning:
+  sequence:
