@@ -39,3 +39,9 @@
       value_template: "{{ state_attr('sensor.backup_state', 'size_in_home_assistant') }}"
     gdb_free_space_in_google_drive:
       value_template: "{{ state_attr('sensor.backup_state', 'free_space_in_google_drive') }}"
+
+- platform: template
+  sensors:
+    sun_elevation:
+      unit_of_measurement: "°"
+      value_template: "{{ state_attr('sun.sun', 'elevation') | float }}"

@@ -11,7 +11,7 @@ tts:
   - platform: google_translate
 
 recorder: !include recorder.yaml
-#influxdb: !include influxdb.yaml
+influxdb: !include influxdb.yaml
 automation: !include_dir_merge_list automations/
 sensor: !include_dir_merge_list sensors/
 script: !include_dir_merge_named scripts/
@@ -51,3 +51,6 @@ panel_iframe:
     title: TasmoAdmin
     icon: mdi:lightbulb-on
     url: http://192.168.1.12:9541
+
+logger:
+  default: info

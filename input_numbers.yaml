@@ -62,3 +62,13 @@ hvac_tommy_timer:
 hvac_tommy_counter:
   min: 0
   max: 600
+
+elevation_l1:
+  initial: 10
+  min: 0
+  max: 50
+
+elevation_l2:
+  initial: 20
+  min: 0
+  max: 50

@@ -62,6 +62,8 @@
                   "columns": 5,
                   "cards": [
                     {
+                      "show_name": false,
+                      "show_icon": true,
                       "type": "button",
                       "tap_action": {
                         "action": "call-service",
@@ -73,8 +75,7 @@
                       "icon": "mdi:home",
                       "icon_height": "30px",
                       "name": " ",
-                      "entity": "script.welcome",
-                      "show_name": false
+                      "entity": "script.welcome"
                     },
                     {
                       "type": "button",
@@ -1900,221 +1901,40 @@
           "icon": "mdi:music",
           "visible": [
             {
-              "user": "0a1a5fef720a4e3e95c9354e5586c5a2"
-            },
-            {
-              "user": "2bfba91451324e8c971f9028ea7f2111"
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
             }
           ],
           "badges": [],
           "cards": [
             {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "media_player.multi_room"
-                },
-                {
-                  "entity": "media_player.echo_dot_cucina"
-                },
-                {
-                  "entity": "media_player.2o_echo_dot_di_salvatore"
-                }
-              ]
+              "type": "custom:mini-media-player",
+              "entity": "media_player.echo_dot_cucina",
+              "group": false,
+              "artwork": "full-cover",
+              "tts": {
+                "platform": "alexa",
+                "enity_id": "media_player.echo_dot_cucina"
+              }
             },
             {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "input_text.tts_string"
-                    }
-                  ],
-                  "show_header_toggle": false,
-                  "title": "Text 2 Speech"
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:home",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "script.text_to_speech_multi_room",
-                      "show_name": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:pot-mix",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "script.text_to_speech_echo_dot",
-                      "show_name": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:sofa",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "script.text_to_speech_echo_dot_black",
-                      "show_name": false
-                    }
-                  ]
-                }
-              ]
+              "type": "custom:mini-media-player",
+              "entity": "media_player.echo_dot_black",
+              "group": false,
+              "artwork": "full-cover",
+              "tts": {
+                "platform": "alexa",
+                "enity_id": "media_player.echo_dot_black"
+              }
             },
             {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "entities",
-                  "entities": [],
-                  "title": "Bookmarks"
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:bookmark-plus",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "script.add_to_bookmarks",
-                      "show_name": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:bookmark-minus",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "script.remove_from_bookmarks",
-                      "show_name": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:bookmark-check",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "script.copy_bookmark",
-                      "show_name": false
-                    }
-                  ]
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "input_select.music"
-                    }
-                  ]
-                },
-                {
-                  "type": "entities",
-                  "entities": [],
-                  "title": "Controlli"
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:home",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "script.play_multi_room",
-                      "show_name": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:pot-mix",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "script.play_echo_dot",
-                      "show_name": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:sofa",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "script.play_echo_dot_black",
-                      "show_name": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:bookmark",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "input_boolean.bookmark_random",
-                      "show_name": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon": "mdi:shuffle-variant",
-                      "icon_height": "30px",
-                      "name": " ",
-                      "entity": "input_boolean.shuffle",
-                      "show_name": false
-                    }
-                  ]
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "input_text.music_string"
-                    }
-                  ],
-                  "show_header_toggle": true
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "input_number.media_volume"
-                    },
-                    {
-                      "entity": "input_select.media_content_type"
-                    }
-                  ]
-                }
-              ]
+              "type": "custom:mini-media-player",
+              "entity": "media_player.multi_room",
+              "group": false,
+              "artwork": "full-cover",
+              "tts": {
+                "platform": "alexa",
+                "enity_id": "media_player.multi_room"
+              }
             }
           ]
         },
@@ -2398,47 +2218,6 @@
           ]
         },
         {
-          "title": "",
-          "path": "h-and-t",
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "panel": true,
-          "icon": "mdi:google-maps",
-          "badges": [],
-          "cards": [
-            {
-              "type": "map",
-              "entities": [
-                {
-                  "entity": "device_tracker.iphone_di_salvatore"
-                },
-                {
-                  "entity": "device_tracker.iphone_di_gloria"
-                },
-                {
-                  "entity": "zone.colle_grosso"
-                },
-                {
-                  "entity": "zone.colle_martino"
-                },
-                {
-                  "entity": "zone.home"
-                },
-                {
-                  "entity": "zone.work"
-                },
-                {
-                  "entity": "zone.school"
-                }
-              ],
-              "hours_to_show": 24
-            }
-          ]
-        },
-        {
           "icon": "mdi:chart-areaspline",
           "panel": true,
           "visible": [
@@ -2581,9 +2360,6 @@
               "entity": "sensor.git_alarm"
             },
             {
-              "entity": "binary_sensor.rpi_power_status"
-            },
-            {
               "entity": "binary_sensor.backups_stale"
             },
             {
@@ -2601,6 +2377,19 @@
               ]
             },
             {
+              "show_name": true,
+              "show_icon": true,
+              "type": "button",
+              "tap_action": {
+                "action": "call-service",
+                "service": "homekit.reload"
+              },
+              "icon_height": "30px",
+              "icon": "mdi:reload",
+              "name": "HomeKit reload",
+              "show_state": false
+            },
+            {
               "type": "vertical-stack",
               "cards": [
                 {
@@ -2613,9 +2402,11 @@
                       "entity": "sensor.processor_use"
                     },
                     {
-                      "type": "sensor",
+                      "hours_to_show": 24,
                       "graph": "line",
-                      "entity": "sensor.processor_temperature"
+                      "type": "sensor",
+                      "entity": "sensor.cpu_temperature",
+                      "detail": 1
                     }
                   ]
                 },
@@ -2891,6 +2682,48 @@
               ],
               "columns": 1,
               "square": false
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "path": "tmp",
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "icon": "mdi:sun-clock",
+          "badges": [],
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                "sun.sun"
+              ]
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                {
+                  "entity": "sensor.sun_elevation"
+                }
+              ],
+              "hours_to_show": 48
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "input_number.elevation_l1"
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "input_number.elevation_l2"
+              ]
             }
           ]
         },
@@ -4148,1266 +3981,39 @@
           ]
         },
         {
-          "path": "",
-          "title": "Home old",
-          "icon": "",
-          "visible": [
-            {
-              "user": "2bfba91451324e8c971f9028ea7f2111"
-            }
-          ],
-          "badges": [
-            {
-              "entity": "binary_sensor.updater"
-            },
-            {
-              "entity": "person.salvatore"
-            },
-            {
-              "entity": "person.gloria"
-            },
-            {
-              "entity": "sensor.hvac_living_room_temperature"
-            },
-            {
-              "entity": "sensor.hvac_bedroom_room_temperature"
-            },
-            {
-              "entity": "sensor.hvac_study_room_temperature"
-            },
-            {
-              "entity": "sensor.hvac_tommy_room_temperature"
-            },
-            {
-              "entity": "sensor.ht_1_t"
-            },
-            {
-              "entity": "sensor.ht_1_h"
-            },
-            {
-              "entity": "cover.all"
-            }
-          ],
-          "cards": [
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "group.luci",
-                  "icon": "hass:lightbulb-group",
-                  "icon_height": "40px"
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "vertical-stack",
-                      "cards": [
-                        {
-                          "type": "button",
-                          "tap_action": {
-                            "action": "toggle"
-                          },
-                          "entity": "group.luci_zona_giorno",
-                          "icon": "hass:lightbulb-group",
-                          "icon_height": "40px"
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "light.ingresso"
-                            },
-                            {
-                              "entity": "light.flos_aim"
-                            },
-                            {
-                              "entity": "light.led_divano"
-                            },
-                            {
-                              "entity": "light.flos_ic_t2"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "light.led_cucina_virtual"
-                            },
-                            {
-                              "entity": "light.luce_penisola"
-                            },
-                            {
-                              "entity": "light.led_pensili"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "vertical-stack",
-                      "cards": [
-                        {
-                          "type": "button",
-                          "tap_action": {
-                            "action": "toggle"
-                          },
-                          "entity": "group.luci_zona_notte",
-                          "icon": "hass:lightbulb-group",
-                          "icon_height": "40px"
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "light.corridoio"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "light.flos_ariette"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "light.tommaso"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "light.luce_studio"
-                            },
-                            {
-                              "entity": "light.faretti_studio"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "entities",
-                          "entities": [
-                            {
-                              "entity": "light.bagno"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "cover.all"
-                },
-                {
-                  "entity": "cover.zona_giorno"
-                },
-                {
-                  "entity": "cover.zona_notte"
-                }
-              ],
-              "show_header_toggle": false
-            }
-          ]
-        },
-        {
-          "title": "tmp",
-          "path": "tmp",
+          "title": "",
+          "path": "h-and-t",
           "visible": [],
+          "panel": true,
+          "icon": "mdi:google-maps",
           "badges": [],
           "cards": [
             {
-              "type": "grid",
-              "columns": 1,
-              "square": false,
-              "cards": [
+              "type": "map",
+              "entities": [
                 {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "none"
-                  },
-                  "show_name": true,
-                  "show_icon": false,
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "name": "Tapparelle",
-                  "show_state": false
+                  "entity": "device_tracker.iphone_di_salvatore"
                 },
                 {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.stop_cover",
-                        "service_data": {
-                          "entity_id": "cover.all"
-                        }
-                      },
-                      "entity": "cover.all",
-                      "icon_height": "30px",
-                      "show_name": false,
-                      "icon": "mdi:stop"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.all"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.all"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.all",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.all",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
+                  "entity": "device_tracker.iphone_di_gloria"
                 },
                 {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon_height": "30px",
-                      "name": "Zona giorno",
-                      "entity": "cover.zona_giorno",
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-sunny"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.zona_giorno"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.zona_giorno"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.zona_giorno",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.zona_giorno",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
+                  "entity": "zone.colle_grosso"
                 },
                 {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon_height": "30px",
-                      "name": "Zona notte",
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "entity": "cover.zona_notte",
-                      "icon": "mdi:weather-night"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.zona_notte"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.zona_notte"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.zona_notte",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.zona_notte",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
+                  "entity": "zone.colle_martino"
                 },
                 {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon_height": "30px",
-                      "name": "Finestra sala",
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "entity": "cover.living_small",
-                      "icon": "mdi:sofa"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.living_small"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.living_small"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.living_small",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.living_small",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
+                  "entity": "zone.home"
                 },
                 {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon_height": "30px",
-                      "name": "Porta finestra sala",
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "entity": "cover.living_big",
-                      "icon": "mdi:door"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.living_big"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.living_big"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.living_big",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.living_big",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
+                  "entity": "zone.work"
                 },
                 {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon_height": "30px",
-                      "name": "Cucina",
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "entity": "cover.kitchen",
-                      "icon": "mdi:silverware-variant"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.kitchen"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.kitchen"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.kitchen",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.kitchen",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
-                },
-                {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon_height": "30px",
-                      "name": "Camera",
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "entity": "cover.bedroom",
-                      "icon": "mdi:bed"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.bedroom"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.bedroom"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.bedroom",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.bedroom",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
-                },
-                {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon_height": "30px",
-                      "name": "Studio",
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "entity": "cover.study",
-                      "icon": "mdi:desk"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.study"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.study"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.study",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.study",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
-                },
-                {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon_height": "30px",
-                      "name": "Tommaso",
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "entity": "cover.tommy",
-                      "icon": "mdi:human-child"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.tommy"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.tommy"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.tommy",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.tommy",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
-                },
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "none"
-                  },
-                  "show_name": true,
-                  "show_icon": false,
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "name": "Posizioni"
-                },
-                {
-                  "type": "map",
-                  "entities": [
-                    {
-                      "entity": "person.salvatore"
-                    },
-                    {
-                      "entity": "person.gloria"
-                    }
-                  ],
-                  "hours_to_show": 24,
-                  "dark_mode": false
+                  "entity": "zone.school"
                 }
-              ]
-            },
-            {
-              "type": "grid",
-              "columns": 1,
-              "square": false,
-              "cards": [
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "none"
-                  },
-                  "show_name": true,
-                  "show_icon": false,
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "name": "Tapparelle",
-                  "show_state": false
-                },
-                {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.stop_cover",
-                        "service_data": {
-                          "entity_id": "cover.all"
-                        }
-                      },
-                      "entity": "cover.all",
-                      "icon_height": "30px",
-                      "show_name": false,
-                      "icon": "mdi:stop"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.all"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.all"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.all",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.all",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
-                },
-                {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon_height": "30px",
-                      "name": "Zona giorno",
-                      "entity": "cover.zona_giorno",
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-sunny"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.zona_giorno"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.zona_giorno"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.zona_giorno",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.zona_giorno",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
-                },
-                {
-                  "type": "grid",
-                  "columns": 5,
-                  "square": false,
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "icon_height": "30px",
-                      "name": "Zona notte",
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "entity": "cover.zona_notte",
-                      "icon": "mdi:weather-night"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.close_cover",
-                        "service_data": {
-                          "entity_id": "cover.zona_notte"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.open_cover",
-                        "service_data": {
-                          "entity_id": "cover.zona_notte"
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:window-shutter-open",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.zona_notte",
-                          "position": 35
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:weather-windy",
-                      "icon_height": "30px"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "cover.set_cover_position",
-                        "service_data": {
-                          "entity_id": "cover.zona_notte",
-                          "position": 25
-                        }
-                      },
-                      "show_name": false,
-                      "show_icon": true,
-                      "show_state": false,
-                      "icon": "mdi:format-line-weight",
-                      "icon_height": "30px"
-                    }
-                  ]
-                },
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "none"
-                  },
-                  "show_name": true,
-                  "show_icon": false,
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "name": "Posizioni"
-                },
-                {
-                  "type": "map",
-                  "entities": [
-                    {
-                      "entity": "person.salvatore"
-                    },
-                    {
-                      "entity": "person.gloria"
-                    }
-                  ],
-                  "hours_to_show": 24,
-                  "dark_mode": false
-                }
-              ]
+              ],
+              "hours_to_show": 24
             }
           ]
         }

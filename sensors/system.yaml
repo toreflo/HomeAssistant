@@ -14,6 +14,14 @@
 #      unit_of_measurement: MB
 
 - platform: command_line
+  name: CPU temperature
+  command: >
+    read -r val </sys/class/thermal/thermal_zone1/temp;echo ${val}
+  value_template: >
+    {{value|multiply(0.001)|round(1)}}
+  unit_of_measurement: °C
+
+- platform: command_line
   name: Git alarm
   command: "[ $(git status -s | wc -l) -gt 0 ] && echo on || echo off"
 
@@ -26,7 +34,7 @@
     - type: memory_use_percent
     - type: memory_free
     - type: processor_use
-    - type: processor_temperature
+#    - type: processor_temperature
     - type: network_in
       arg: eth0
     - type: network_out

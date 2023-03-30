@@ -12,6 +12,7 @@ include:
     - input_boolean.home_occupied
     - input_boolean.salvatore_connected
     - input_boolean.gloria_connected
+    - sun.sun
 exclude:
   entities:
     - sensor.date
