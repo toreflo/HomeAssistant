@@ -62,32 +62,32 @@
   state_topic: "shellies/shelly25-luci_cucina/overtemperature"
   qos: 0
 
-# Shelly 2.5 luci studio
+# Shelly 2pm luci studio
 - name: "Luce studio P"
-  state_topic: "shellies/shelly25-luci_studio/relay/0/power"
+  state_topic: "shelliesgen2/shelly2pm-luci_studio/status/switch:1"
   qos: 0
   unit_of_measurement: "W"
+  value_template: "{{ value_json.apower | round(2) }}"
 - name: "Luce studio E"
-  state_topic: "shellies/shelly25-luci_studio/relay/0/energy"
+  state_topic: "shelliesgen2/shelly2pm-luci_studio/status/switch:1"
   qos: 0
   unit_of_measurement: "Wh"
-  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+  value_template: "{{ value_json.aenergy.total | round(2) }}" 
 - name: "Faretti studio P"
-  state_topic: "shellies/shelly25-luci_studio/relay/1/power"
+  state_topic: "shelliesgen2/shelly2pm-luci_studio/status/switch:0"
   qos: 0
   unit_of_measurement: "W"
+  value_template: "{{ value_json.apower | round(2) }}"
 - name: "Faretti studio E"
-  state_topic: "shellies/shelly25-luci_studio/relay/1/energy"
+  state_topic: "shelliesgen2/shelly2pm-luci_studio/status/switch:0"
   qos: 0
   unit_of_measurement: "Wh"
-  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+  value_template: "{{ value_json.aenergy.total | round(2) }}" 
 - name: "luci studio T"
-  state_topic: "shellies/shelly25-luci_studio/temperature"
+  state_topic: "shelliesgen2/shelly2pm-luci_studio/status/switch:0"
   qos: 0
   unit_of_measurement: "°C"
-- name: "luci studio Talarm"
-  state_topic: "shellies/shelly25-luci_studio/overtemperature"
-  qos: 0
+  value_template: "{{ value_json.temperature.tC | round(2) }}" 
 
 # Shelly 2.5 tapparella cucina
 - name: "kitchen_cover_P"
