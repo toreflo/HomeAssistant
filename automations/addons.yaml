@@ -1,0 +1,24 @@
+- id: '1680552238395'
+  alias: 'Restart NGINX'
+  description: ''
+  trigger:
+  - platform: time
+    at: 03:00:00
+  condition: []
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_nginx_proxy
+  mode: single
+- id: '1680552642034'
+  alias: 'Restart DuckDNS'
+  description: ''
+  trigger:
+  - platform: time
+    at: 03:10:00
+  condition: []
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_duckdns
+  mode: single

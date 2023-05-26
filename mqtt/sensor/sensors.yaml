@@ -248,3 +248,10 @@
   value_template: "{{ value }}"
   unit_of_measurement: "%"
   icon: mdi:battery
+
+# InfluxDB DB size
+  name: 'InfluxDB HA DB Size'
+  unit_of_measurement: 'MB'
+  icon: hass:chart-line
+  state_topic: "home-assistant/sensor/influx-dbsize"
+  value_template: "{{ (value.split('\t')[0]|int(0)/1000)|round(3) }}"

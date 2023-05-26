@@ -1935,6 +1935,10 @@
                 "platform": "alexa",
                 "enity_id": "media_player.multi_room"
               }
+            },
+            {
+              "type": "media-control",
+              "entity": "media_player.samsung_q95t"
             }
           ]
         },
@@ -2231,118 +2235,8 @@
               "type": "vertical-stack",
               "cards": [
                 {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.hvac_living_room_temperature"
-                    },
-                    {
-                      "entity": "sensor.hvac_tommy_room_temperature"
-                    },
-                    {
-                      "entity": "sensor.hvac_bedroom_room_temperature"
-                    },
-                    {
-                      "entity": "sensor.hvac_study_room_temperature"
-                    },
-                    {
-                      "entity": "sensor.ht_1_t"
-                    },
-                    {
-                      "entity": "sensor.ht_2_t"
-                    }
-                  ],
-                  "hours_to_show": 72,
-                  "refresh_interval": 0
-                },
-                {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.ht_1_h"
-                    },
-                    {
-                      "entity": "sensor.ht_2_h"
-                    }
-                  ],
-                  "hours_to_show": 72,
-                  "refresh_interval": 0
-                },
-                {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.ht_1_battery"
-                    },
-                    {
-                      "entity": "sensor.ht_2_battery"
-                    }
-                  ],
-                  "hours_to_show": 72,
-                  "refresh_interval": 0
-                },
-                {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.d_energy_mel_small"
-                    },
-                    {
-                      "entity": "sensor.d_energy_mel_big"
-                    }
-                  ],
-                  "hours_to_show": 72,
-                  "refresh_interval": 0
-                },
-                {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.d_energy_luce_ingresso"
-                    },
-                    {
-                      "entity": "sensor.d_energy_flos_aim"
-                    },
-                    {
-                      "entity": "sensor.d_energy_led_cucina"
-                    },
-                    {
-                      "entity": "sensor.d_energy_faretti_studio"
-                    },
-                    {
-                      "entity": "sensor.d_energy_luce_studio"
-                    },
-                    {
-                      "entity": "sensor.d_energy_led_divano"
-                    }
-                  ],
-                  "hours_to_show": 72,
-                  "refresh_interval": 0
-                },
-                {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.cover_d_energy_living_big"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_living_small"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_kitchen"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_bedroom"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_study"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_tommy"
-                    }
-                  ],
-                  "hours_to_show": 72,
-                  "refresh_interval": 0
+                  "type": "iframe",
+                  "url": "http://192.168.1.12:8123/api/hassio_ingress/ZK6QngKc_hbpVl1ZySSn30IPbODcoYxMJrjX7BeNvBU/d/7GUOvILVk/consumi?orgId=1&refresh=10s"
                 }
               ]
             }
@@ -2464,6 +2358,13 @@
                       "type": "sensor",
                       "entity": "sensor.mariadb_size",
                       "detail": 1
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.influxdb_ha_db_size",
+                      "detail": 1
                     }
                   ]
                 }
@@ -2575,6 +2476,18 @@
                   ]
                 }
               ]
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "icon": "mdi:chart-bar-stacked",
+          "type": "panel",
+          "badges": [],
+          "cards": [
+            {
+              "type": "iframe",
+              "url": "http://192.168.1.12:8123/api/hassio_ingress/ZK6QngKc_hbpVl1ZySSn30IPbODcoYxMJrjX7BeNvBU/d/CRteMILVz/sys-stas?orgId=1&refresh=10s"
             }
           ]
         },
