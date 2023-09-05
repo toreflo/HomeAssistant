@@ -52,5 +52,10 @@ panel_iframe:
     icon: mdi:lightbulb-on
     url: http://192.168.1.12:9541
 
+camera:
+  - platform: ffmpeg
+    name: tapo C110 1080P
+    input: !secret tapo_c110_url_1080p
+
 logger:
   default: info

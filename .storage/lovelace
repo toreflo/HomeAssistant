@@ -1898,6 +1898,26 @@
           ]
         },
         {
+          "icon": "mdi:cctv",
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "badges": [],
+          "cards": [
+            {
+              "show_state": false,
+              "show_name": false,
+              "camera_view": "live",
+              "type": "picture-entity",
+              "entity": "camera.tapo_c110_1080p",
+              "camera_image": "camera.tapo_c110",
+              "name": "1080p"
+            }
+          ]
+        },
+        {
           "icon": "mdi:music",
           "visible": [
             {

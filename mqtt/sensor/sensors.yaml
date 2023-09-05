@@ -62,29 +62,29 @@
   state_topic: "shellies/shelly25-luci_cucina/overtemperature"
   qos: 0
 
-# Shelly 2pm luci studio
+# Shelly Plus 2pm luci studio
 - name: "Luce studio P"
-  state_topic: "shelliesgen2/shelly2pm-luci_studio/status/switch:1"
+  state_topic: "shelliesgen2/shellyplus2pm-luci_studio/status/switch:1"
   qos: 0
   unit_of_measurement: "W"
   value_template: "{{ value_json.apower | round(2) }}"
 - name: "Luce studio E"
-  state_topic: "shelliesgen2/shelly2pm-luci_studio/status/switch:1"
+  state_topic: "shelliesgen2/shellyplus2pm-luci_studio/status/switch:1"
   qos: 0
   unit_of_measurement: "Wh"
   value_template: "{{ value_json.aenergy.total | round(2) }}" 
 - name: "Faretti studio P"
-  state_topic: "shelliesgen2/shelly2pm-luci_studio/status/switch:0"
+  state_topic: "shelliesgen2/shellyplus2pm-luci_studio/status/switch:0"
   qos: 0
   unit_of_measurement: "W"
   value_template: "{{ value_json.apower | round(2) }}"
 - name: "Faretti studio E"
-  state_topic: "shelliesgen2/shelly2pm-luci_studio/status/switch:0"
+  state_topic: "shelliesgen2/shellyplus2pm-luci_studio/status/switch:0"
   qos: 0
   unit_of_measurement: "Wh"
   value_template: "{{ value_json.aenergy.total | round(2) }}" 
 - name: "luci studio T"
-  state_topic: "shelliesgen2/shelly2pm-luci_studio/status/switch:0"
+  state_topic: "shelliesgen2/shellyplus2pm-luci_studio/status/switch:0"
   qos: 0
   unit_of_measurement: "°C"
   value_template: "{{ value_json.temperature.tC | round(2) }}" 
@@ -107,23 +107,22 @@
   state_topic: "shellies/shelly25-tapp_cucina/overtemperature"
   qos: 0
 
-# Shelly 2.5 tapparella sala balcone
+# Shelly Plus 2pm tapparella sala balcone
 - name: "living_big_cover_P"
-  state_topic: "shellies/shelly25-tapp_sala_big/roller/0/power"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_sala_big/status/cover:0"
   qos: 0
   unit_of_measurement: "W"
+  value_template: "{{ value_json.apower | round(2) }}"
 - name: "living_big_cover_E"
-  state_topic: "shellies/shelly25-tapp_sala_big/roller/0/energy"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_sala_big/status/cover:0"
   qos: 0
   unit_of_measurement: "Wh"
-  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+  value_template: "{{ value_json.aenergy.total | round(2) }}" 
 - name: "living_big_cover_T"
-  state_topic: "shellies/shelly25-tapp_sala_big/temperature"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_sala_big/status/cover:0"
   qos: 0
   unit_of_measurement: "°C"
-- name: "living_big_cover_Talarm"
-  state_topic: "shellies/shelly25-tapp_sala_big/overtemperature"
-  qos: 0
+  value_template: "{{ value_json.temperature.tC | round(2) }}" 
 
 # Shelly 2.5 tapparella sala finestra
 - name: "living_small_cover_P"
