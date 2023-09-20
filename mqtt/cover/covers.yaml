@@ -1,18 +1,21 @@
 - name: "kitchen"
-  command_topic: "shellies/shelly25-tapp_cucina/roller/0/command"
-  position_topic: "shellies/shelly25-tapp_cucina/roller/0/pos"
-  set_position_topic: "shellies/shelly25-tapp_cucina/roller/0/command/pos"
-  # availability_topic: "shellies/shelly25-tapp_cucina/online"
-  # payload_available: "true"
-  # payload_not_available: "false"
-  retain: false
-  payload_open: "open"
-  payload_close: "close"
-  payload_stop: "stop"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_cucina/status/cover:0"
+  value_template: "{{ value_json.state }}"
+  state_opening: "opening"
+  state_closing: "closing"
+  state_stopped: "stopped"
+  state_open: "open"
+  state_closed: "closed"
+  position_topic: "shelliesgen2/shellyplus2pm-tapp_cucina/status/cover:0"
+  position_template: "{{ value_json.current_pos | int }}"
   position_open: 100
   position_closed: 0
-  optimistic: false
-  qos: 0
+  command_topic: "shelliesgen2/shellyplus2pm-tapp_cucina/rpc"
+  payload_open: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_cucina","method":"Cover.Open","params":{"id":0}}'
+  payload_close: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_cucina","method":"Cover.Close","params":{"id":0}}'
+  payload_stop: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_cucina","method":"Cover.Stop","params":{"id":0}}'
+  set_position_topic: "shelliesgen2/shellyplus2pm-tapp_cucina/rpc"
+  set_position_template: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_cucina","method":"Cover.GoToPosition","params":{"id":0,"pos":{{ position }}}}'
 
 - name: "living_big"
   state_topic: "shelliesgen2/shellyplus2pm-tapp_sala_big/status/cover:0"
@@ -34,20 +37,24 @@
   set_position_template: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_sala_big","method":"Cover.GoToPosition","params":{"id":0,"pos":{{ position }}}}'
 
 - name: "living_small"
-  command_topic: "shellies/shelly25-tapp_sala_small/roller/0/command"
-  position_topic: "shellies/shelly25-tapp_sala_small/roller/0/pos"
-  set_position_topic: "shellies/shelly25-tapp_sala_small/roller/0/command/pos"
-  # availability_topic: "shellies/shelly25-tapp_sala_small/online"
-  # payload_available: "true"
-  # payload_not_available: "false"
-  retain: false
-  payload_open: "open"
-  payload_close: "close"
-  payload_stop: "stop"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_sala_small/status/cover:0"
+  value_template: "{{ value_json.state }}"
+  state_opening: "opening"
+  state_closing: "closing"
+  state_stopped: "stopped"
+  state_open: "open"
+  state_closed: "closed"
+  position_topic: "shelliesgen2/shellyplus2pm-tapp_sala_small/status/cover:0"
+  position_template: "{{ value_json.current_pos | int }}"
   position_open: 100
   position_closed: 0
-  optimistic: false
-  qos: 0
+  command_topic: "shelliesgen2/shellyplus2pm-tapp_sala_small/rpc"
+  payload_open: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_sala_small","method":"Cover.Open","params":{"id":0}}'
+  payload_close: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_sala_small","method":"Cover.Close","params":{"id":0}}'
+  payload_stop: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_sala_small","method":"Cover.Stop","params":{"id":0}}'
+  set_position_topic: "shelliesgen2/shellyplus2pm-tapp_sala_small/rpc"
+  set_position_template: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_sala_small","method":"Cover.GoToPosition","params":{"id":0,"pos":{{ position }}}}'
+
 
 - name: "bedroom"
   command_topic: "shellies/shelly25-tapp_camera/roller/0/command"
