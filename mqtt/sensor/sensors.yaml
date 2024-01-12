@@ -177,23 +177,22 @@
   state_topic: "shellies/shelly25-tapp_Tommaso/overtemperature"
   qos: 0
 
-# Shelly 2.5 tapparella studio
+# Shelly Plus 2pm tapparella studio
 - name: "study_cover_P"
-  state_topic: "shellies/shelly25-tapp_studio/roller/0/power"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_studio/status/cover:0"
   qos: 0
   unit_of_measurement: "W"
+  value_template: "{{ value_json.apower | round(2) }}"
 - name: "study_cover_E"
-  state_topic: "shellies/shelly25-tapp_studio/roller/0/energy"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_studio/status/cover:0"
   qos: 0
   unit_of_measurement: "Wh"
-  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+  value_template: "{{ value_json.aenergy.total | round(2) }}" 
 - name: "study_cover_T"
-  state_topic: "shellies/shelly25-tapp_studio/temperature"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_studio/status/cover:0"
   qos: 0
   unit_of_measurement: "°C"
-- name: "study_cover_Talarm"
-  state_topic: "shellies/shelly25-tapp_studio/overtemperature"
-  qos: 0
+  value_template: "{{ value_json.temperature.tC | round(2) }}"
 
 # Shelly 2.5 tapparella bagnetto
 - name: "bathroom_cover_P"
