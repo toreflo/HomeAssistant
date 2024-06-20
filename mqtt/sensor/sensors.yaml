@@ -16,32 +16,32 @@
   state_topic: "shellies/shelly1pm-ingresso/overtemperature"
   qos: 0
 
-# Shelly 2.5 luci sala
+# Shelly Plus 2pm luci sala
 - name: "Flos Aim P"
-  state_topic: "shellies/shelly25-luci_sala/relay/0/power"
+  state_topic: "shelliesgen2/shellyplus2pm-luci_sala/status/switch:0"
   qos: 0
   unit_of_measurement: "W"
+  value_template: "{{ value_json.apower | round(2) }}"
 - name: "Flos Aim E"
-  state_topic: "shellies/shelly25-luci_sala/relay/0/energy"
+  state_topic: "shelliesgen2/shellyplus2pm-luci_sala/status/switch:0"
   qos: 0
   unit_of_measurement: "Wh"
-  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+  value_template: "{{ value_json.aenergy.total | round(2) }}" 
 - name: "Led divano P"
-  state_topic: "shellies/shelly25-luci_sala/relay/1/power"
+  state_topic: "shelliesgen2/shellyplus2pm-luci_sala/status/switch:1"
   qos: 0
   unit_of_measurement: "W"
+  value_template: "{{ value_json.apower | round(2) }}"
 - name: "Led divano E"
-  state_topic: "shellies/shelly25-luci_sala/relay/1/energy"
+  state_topic: "shelliesgen2/shellyplus2pm-luci_sala/status/switch:1"
   qos: 0
   unit_of_measurement: "Wh"
-  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+  value_template: "{{ value_json.aenergy.total | round(2) }}" 
 - name: "luci sala T"
-  state_topic: "shellies/shelly25-luci_sala/temperature"
+  state_topic: "shelliesgen2/shellyplus2pm-luci_sala/status/switch:0"
   qos: 0
   unit_of_measurement: "°C"
-- name: "luci sala Talarm"
-  state_topic: "shellies/shelly25-luci_sala/overtemperature"
-  qos: 0
+  value_template: "{{ value_json.temperature.tC | round(2) }}" 
 
 # Shelly 2.5 led cucina
 # Il relay 0 non viene monitorato perché è usato come un pulsante
@@ -161,21 +161,20 @@
 
 # Shelly 2.5 tapparella Tommy
 - name: "tommy_cover_P"
-  state_topic: "shellies/shelly25-tapp_Tommaso/roller/0/power"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_tommaso/status/cover:0"
   qos: 0
   unit_of_measurement: "W"
+  value_template: "{{ value_json.apower | round(2) }}"
 - name: "tommy_cover_E"
-  state_topic: "shellies/shelly25-tapp_Tommaso/roller/0/energy"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_tommaso/status/cover:0"
   qos: 0
   unit_of_measurement: "Wh"
-  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+  value_template: "{{ value_json.aenergy.total | round(2) }}" 
 - name: "tommy_cover_T"
-  state_topic: "shellies/shelly25-tapp_Tommaso/temperature"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_tommaso/status/cover:0"
   qos: 0
   unit_of_measurement: "°C"
-- name: "tommy_cover_Talarm"
-  state_topic: "shellies/shelly25-tapp_Tommaso/overtemperature"
-  qos: 0
+  value_template: "{{ value_json.temperature.tC | round(2) }}"
 
 # Shelly Plus 2pm tapparella studio
 - name: "study_cover_P"
@@ -194,23 +193,22 @@
   unit_of_measurement: "°C"
   value_template: "{{ value_json.temperature.tC | round(2) }}"
 
-# Shelly 2.5 tapparella bagnetto
+# Shelly Plus 2pm tapparella bagnetto
 - name: "bathroom_cover_P"
-  state_topic: "shellies/shelly25-tapp_bagnetto/roller/0/power"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_bagnetto/status/cover:0"
   qos: 0
   unit_of_measurement: "W"
+  value_template: "{{ value_json.apower | round(2) }}"
 - name: "bathroom_cover_E"
-  state_topic: "shellies/shelly25-tapp_bagnetto/roller/0/energy"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_bagnetto/status/cover:0"
   qos: 0
   unit_of_measurement: "Wh"
-  value_template: "{{ (value|float / 60) | round(2) }}" # Fix for Watt-minutes
+  value_template: "{{ value_json.aenergy.total | round(2) }}" 
 - name: "bathroom_cover_T"
-  state_topic: "shellies/shelly25-tapp_bagnetto/temperature"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_bagnetto/status/cover:0"
   qos: 0
   unit_of_measurement: "°C"
-- name: "bathroom_cover_Talarm"
-  state_topic: "shellies/shelly25-tapp_bagnetto/overtemperature"
-  qos: 0
+  value_template: "{{ value_json.temperature.tC | round(2) }}"
 
 # Shelly H&T 1
 - name: "ht_1_T"

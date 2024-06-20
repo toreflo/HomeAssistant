@@ -111,17 +111,3 @@ cover_d_energy_bathroom:
 cover_m_energy_bathroom:
   source: sensor.bathroom_cover_e
   cycle: monthly
-
-# Rete
-network_in_daily:
-  source: sensor.network_in_eth0
-  cycle: daily
-network_in_monthly:
-  source: sensor.network_in_eth0
-  cycle: monthly
-network_out_daily:
-  source: sensor.network_out_eth0
-  cycle: daily
-network_out_monthly:
-  source: sensor.network_out_eth0
-  cycle: monthly

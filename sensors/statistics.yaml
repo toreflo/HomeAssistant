@@ -1,0 +1,42 @@
+- platform: statistics
+  name: "Daily avg download speed"
+  entity_id: sensor.speedtest_download
+  state_characteristic: mean
+  max_age:
+    hours: 24
+
+- platform: statistics
+  name: "Daily min download speed"
+  entity_id: sensor.speedtest_download
+  state_characteristic: value_min
+  max_age:
+    hours: 24
+
+- platform: statistics
+  name: "Daily max download speed"
+  entity_id: sensor.speedtest_download
+  state_characteristic: value_max
+  max_age:
+    hours: 24
+
+- platform: statistics
+  name: "Daily avg upload speed"
+  entity_id: sensor.speedtest_upload
+  state_characteristic: mean
+  max_age:
+    hours: 24
+
+- platform: statistics
+  name: "Daily min upload speed"
+  entity_id: sensor.speedtest_upload
+  state_characteristic: value_min
+  max_age:
+    hours: 24
+
+- platform: statistics
+  name: "Daily max upload speed"
+  entity_id: sensor.speedtest_upload
+  state_characteristic: value_max
+  max_age:
+    hours: 24
+

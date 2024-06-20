@@ -4,7 +4,7 @@
   "key": "lovelace",
   "data": {
     "config": {
-      "title": "Home",
+      "title": "Main Dashboard",
       "views": [
         {
           "title": "",
@@ -18,6 +18,3442 @@
               "user": "03461658bbca4f8b8ce43bda920ff694"
             }
           ],
+          "icon": "mdi:home-assistant",
+          "badges": [
+            {
+              "entity": "input_boolean.home_occupied"
+            },
+            {
+              "entity": "person.salvatore"
+            },
+            {
+              "entity": "person.gloria"
+            },
+            {
+              "entity": "input_boolean.salvatore_connected"
+            },
+            {
+              "entity": "input_boolean.gloria_connected"
+            },
+            {
+              "entity": "binary_sensor.backups_stale"
+            }
+          ],
+          "cards": [
+            {
+              "type": "grid",
+              "columns": 1,
+              "square": false,
+              "cards": [
+                {
+                  "type": "grid",
+                  "columns": 3,
+                  "square": false,
+                  "cards": [
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "group.luci",
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:home-lightbulb",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "name": " Zona giorno",
+                      "entity": "group.luci_zona_giorno",
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:weather-sunny"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "name": " Zona notte",
+                      "entity": "group.luci_zona_notte",
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:weather-night"
+                    }
+                  ]
+                },
+                {
+                  "square": false,
+                  "type": "grid",
+                  "columns": 6,
+                  "cards": [
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "cover.all"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter-open",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "cover.all"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "cover.zona_giorno"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter-open",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "cover.zona_giorno"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "cover.zona_notte"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter-open",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "cover.zona_notte"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter",
+                      "icon_height": "30px"
+                    }
+                  ]
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "cover.stop_cover",
+                    "service_data": {
+                      "entity_id": "cover.all"
+                    }
+                  },
+                  "entity": "cover.all",
+                  "icon_height": "25px",
+                  "icon": "mdi:stop"
+                },
+                {
+                  "square": false,
+                  "type": "grid",
+                  "cards": [
+                    {
+                      "show_name": true,
+                      "show_icon": false,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "entity": "group.luci_sala",
+                      "show_state": true,
+                      "name": " "
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "light.ingresso",
+                      "icon": "mdi:login",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "show_name": false
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "light.flos_aim",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "show_name": false,
+                      "icon": "mdi:table-furniture"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "light.led_divano",
+                      "icon": "mdi:sofa",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "show_name": false
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "light.flos_ic_t2",
+                      "icon": "mdi:lamp",
+                      "icon_height": "30px",
+                      "name": " "
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "cover.living"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter-open",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "cover.living"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter",
+                      "icon_height": "30px"
+                    }
+                  ],
+                  "columns": 8
+                },
+                {
+                  "square": false,
+                  "type": "grid",
+                  "columns": 8,
+                  "cards": [
+                    {
+                      "show_name": true,
+                      "show_icon": false,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "group.luci_cucina",
+                      "show_state": true,
+                      "icon": "scon"
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "light.led_cucina_virtual",
+                      "icon": "mdi:wall-sconce-flat-outline",
+                      "icon_height": "30px",
+                      "name": " "
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "light.led_pensili",
+                      "icon": "mdi:pot-steam",
+                      "icon_height": "30px",
+                      "name": " "
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "light.luce_penisola",
+                      "icon": "mdi:ceiling-light-multiple",
+                      "icon_height": "30px",
+                      "name": " "
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "cover.kitchen"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter-open",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "cover.kitchen"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter",
+                      "icon_height": "30px"
+                    }
+                  ]
+                },
+                {
+                  "square": false,
+                  "type": "grid",
+                  "columns": 8,
+                  "cards": [
+                    {
+                      "show_name": true,
+                      "show_icon": false,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "light.corridoio",
+                      "show_state": true,
+                      "icon": ""
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "light.corridoio",
+                      "show_state": false,
+                      "icon": "mdi:light-recessed"
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "square": false,
+                  "type": "grid",
+                  "columns": 8,
+                  "cards": [
+                    {
+                      "show_name": true,
+                      "show_icon": false,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "group.luci_camera",
+                      "show_state": true
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "entity": "light.flos_ariette",
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:bed"
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "entity": "switch.lucina_notte",
+                      "show_state": false,
+                      "icon": "mdi:sleep"
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "cover.bedroom"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter-open",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "cover.bedroom"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter",
+                      "icon_height": "30px"
+                    }
+                  ]
+                },
+                {
+                  "square": false,
+                  "type": "grid",
+                  "columns": 8,
+                  "cards": [
+                    {
+                      "show_name": true,
+                      "show_icon": false,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "light.bagnetto",
+                      "show_state": true
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "entity": "light.bagnetto",
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:shower-head"
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "cover.bathroom"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter-open",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "cover.bathroom"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter",
+                      "icon_height": "30px"
+                    }
+                  ]
+                },
+                {
+                  "square": false,
+                  "type": "grid",
+                  "columns": 8,
+                  "cards": [
+                    {
+                      "show_name": true,
+                      "show_icon": false,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "group.luci_studio",
+                      "show_state": true
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "entity": "light.luce_studio",
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:dome-light"
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "entity": "light.faretti_studio",
+                      "show_state": false,
+                      "icon": "mdi:light-recessed"
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "cover.study"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter-open",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "cover.study"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter",
+                      "icon_height": "30px"
+                    }
+                  ]
+                },
+                {
+                  "square": false,
+                  "type": "grid",
+                  "columns": 8,
+                  "cards": [
+                    {
+                      "show_name": true,
+                      "show_icon": false,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "light.tommaso",
+                      "show_state": true
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "entity": "light.tommaso",
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:human-child"
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.open_cover",
+                        "service_data": {
+                          "entity_id": "cover.tommy"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter-open",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.close_cover",
+                        "service_data": {
+                          "entity_id": "cover.tommy"
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:window-shutter",
+                      "icon_height": "30px"
+                    }
+                  ]
+                },
+                {
+                  "square": false,
+                  "type": "grid",
+                  "columns": 8,
+                  "cards": [
+                    {
+                      "show_name": true,
+                      "show_icon": false,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "light.bagno",
+                      "show_state": true
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "icon_height": "30px",
+                      "entity": "light.bagno",
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:shower"
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "icon": "",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "hold_action": {
+                        "action": "none"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "square": false,
+              "type": "grid",
+              "columns": 1,
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": false,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "icon": "",
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "name": "Clima",
+                  "icon_height": "20px",
+                  "show_state": false
+                },
+                {
+                  "type": "grid",
+                  "columns": 5,
+                  "cards": [
+                    {
+                      "type": "button",
+                      "icon_height": "30px",
+                      "entity": "script.climate_off",
+                      "show_name": true,
+                      "show_state": false,
+                      "show_icon": false,
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "name": "Spegni"
+                    },
+                    {
+                      "type": "button",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "climate.hvac_living",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "show_state": true,
+                      "show_icon": false
+                    },
+                    {
+                      "type": "button",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "climate.hvac_bedroom",
+                      "show_name": false,
+                      "show_state": true,
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "show_icon": false
+                    },
+                    {
+                      "type": "button",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "climate.hvac_study",
+                      "show_name": false,
+                      "show_state": true,
+                      "show_icon": false,
+                      "tap_action": {
+                        "action": "toggle"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "climate.hvac_tommy",
+                      "show_name": false,
+                      "show_state": true,
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "show_icon": false
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:home",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "binary_sensor.hvac_on",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "show_state": false
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:sofa",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "binary_sensor.hvac_living_on",
+                      "show_name": false,
+                      "tap_action": {
+                        "action": "none"
+                      },
+                      "show_state": false
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:bed",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "binary_sensor.hvac_bedroom_on",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:desk",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "binary_sensor.hvac_study_on",
+                      "show_name": false,
+                      "show_state": false,
+                      "show_icon": true,
+                      "tap_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:human-child",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "binary_sensor.hvac_tommy_on",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "none"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:water-percent",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_all_dry_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_all_dry_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:water-percent",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_living_dry_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_living_dry_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:water-percent",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_bedroom_dry_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_bedroom_dry_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:water-percent",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_study_dry_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_study_dry_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:water-percent",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_tommy_dry_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_tommy_dry_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:snowflake",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_all_cool_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_all_cool_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:snowflake",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_living_cool_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_living_cool_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:snowflake",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_bedroom_cool_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_bedroom_cool_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:snowflake",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_study_cool_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_study_cool_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:snowflake",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_tommy_cool_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_tommy_cool_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:fire",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_all_heat_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_all_heat_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:fire",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_living_heat_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_living_heat_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:fire",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_bedroom_heat_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_bedroom_heat_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:fire",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_study_heat_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_study_heat_def"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "icon": "mdi:fire",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "entity": "input_boolean.hvac_tommy_heat_def",
+                      "show_name": false,
+                      "show_state": false,
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.turn_on",
+                        "service_data": {
+                          "entity_id": "input_boolean.hvac_tommy_heat_def"
+                        }
+                      }
+                    }
+                  ],
+                  "square": false
+                },
+                {
+                  "type": "grid",
+                  "columns": 4,
+                  "cards": [
+                    {
+                      "type": "sensor",
+                      "entity": "sensor.hvac_living_room_temperature",
+                      "graph": "line"
+                    },
+                    {
+                      "type": "sensor",
+                      "entity": "sensor.hvac_bedroom_room_temperature",
+                      "graph": "line"
+                    },
+                    {
+                      "type": "sensor",
+                      "entity": "sensor.hvac_study_room_temperature",
+                      "graph": "line"
+                    },
+                    {
+                      "type": "sensor",
+                      "entity": "sensor.hvac_tommy_room_temperature",
+                      "graph": "line",
+                      "name": "Tommy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "mdi:cctv",
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "badges": [],
+          "cards": [
+            {
+              "show_state": false,
+              "show_name": false,
+              "camera_view": "live",
+              "type": "picture-entity",
+              "entity": "camera.tapo_c110_1080p",
+              "camera_image": "camera.tapo_c110",
+              "name": "1080p"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "lock.portone_palazzo"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "mdi:music",
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "badges": [],
+          "cards": [
+            {
+              "type": "custom:mini-media-player",
+              "entity": "media_player.echo_dot_cucina",
+              "group": false,
+              "artwork": "full-cover",
+              "tts": {
+                "platform": "alexa",
+                "enity_id": "media_player.echo_dot_cucina"
+              }
+            },
+            {
+              "type": "custom:mini-media-player",
+              "entity": "media_player.echo_dot_black",
+              "group": false,
+              "artwork": "full-cover",
+              "tts": {
+                "platform": "alexa",
+                "enity_id": "media_player.echo_dot_black"
+              }
+            },
+            {
+              "type": "custom:mini-media-player",
+              "entity": "media_player.multi_room",
+              "group": false,
+              "artwork": "full-cover",
+              "tts": {
+                "platform": "alexa",
+                "enity_id": "media_player.multi_room"
+              }
+            },
+            {
+              "type": "media-control",
+              "entity": "media_player.samsung_q95t"
+            }
+          ]
+        },
+        {
+          "title": "Condizionamento",
+          "path": "condizionamento3",
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "icon": "mdi:thermometer",
+          "badges": [],
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "thermostat",
+                      "entity": "climate.hvac_living"
+                    },
+                    {
+                      "type": "thermostat",
+                      "entity": "climate.hvac_bedroom"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_select.hvac_living_hvane"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_select.hvac_bedroom_hvane"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_number.hvac_living_timer",
+                          "type": "custom:numberbox-card",
+                          "icon": "mdi:timelapse",
+                          "unit": "MIN"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_number.hvac_bedroom_timer",
+                          "type": "custom:numberbox-card",
+                          "icon": "mdi:timelapse",
+                          "unit": "MIN"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "gauge",
+                      "entity": "input_number.hvac_living_counter",
+                      "min": 0,
+                      "max": 600
+                    },
+                    {
+                      "type": "gauge",
+                      "entity": "input_number.hvac_bedroom_counter",
+                      "min": 0,
+                      "max": 600
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.hvac_living_energy"
+                    },
+                    {
+                      "entity": "sensor.hvac_bedroom_energy"
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.d_energy_mel_big"
+                    },
+                    {
+                      "entity": "sensor.m_energy_mel_big"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "thermostat",
+                      "entity": "climate.hvac_study"
+                    },
+                    {
+                      "type": "thermostat",
+                      "entity": "climate.hvac_tommy"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_select.hvac_study_hvane"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_select.hvac_tommy_hvane"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_number.hvac_study_timer",
+                          "type": "custom:numberbox-card",
+                          "icon": "mdi:timelapse",
+                          "unit": "MIN"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "entities",
+                      "entities": [
+                        {
+                          "entity": "input_number.hvac_tommy_timer",
+                          "type": "custom:numberbox-card",
+                          "icon": "mdi:timelapse",
+                          "unit": "MIN"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "gauge",
+                      "entity": "input_number.hvac_study_counter",
+                      "min": 0,
+                      "max": 600
+                    },
+                    {
+                      "type": "gauge",
+                      "entity": "input_number.hvac_tommy_counter",
+                      "min": 0,
+                      "max": 600
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.hvac_study_energy"
+                    },
+                    {
+                      "entity": "sensor.hvac_tommy_energy"
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.d_energy_mel_small"
+                    },
+                    {
+                      "entity": "sensor.m_energy_mel_small"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "input_boolean.hvac_living_dry_def"
+                    },
+                    {
+                      "entity": "input_boolean.hvac_bedroom_dry_def"
+                    },
+                    {
+                      "entity": "input_boolean.hvac_study_dry_def"
+                    },
+                    {
+                      "entity": "input_boolean.hvac_tommy_dry_def"
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "input_boolean.hvac_living_cool_def"
+                    },
+                    {
+                      "entity": "input_boolean.hvac_bedroom_cool_def"
+                    },
+                    {
+                      "entity": "input_boolean.hvac_study_cool_def"
+                    },
+                    {
+                      "entity": "input_boolean.hvac_tommy_cool_def"
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "input_boolean.hvac_living_heat_def"
+                    },
+                    {
+                      "entity": "input_boolean.hvac_bedroom_heat_def"
+                    },
+                    {
+                      "entity": "input_boolean.hvac_study_heat_def"
+                    },
+                    {
+                      "entity": "input_boolean.hvac_tommy_heat_def"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "mdi:sprout",
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "badges": [],
+          "cards": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "input_boolean.irrigation_active",
+                      "icon_height": "40px",
+                      "name": "Sched. auto",
+                      "icon": "mdi:history"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.toggle",
+                        "service_data": {
+                          "entity_id": "input_boolean.irrigation_freq_minutes"
+                        }
+                      },
+                      "entity": "binary_sensor.irrigation_freq_mode",
+                      "show_name": true,
+                      "icon_height": "40px",
+                      "name": "Freq. mode",
+                      "show_state": false
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "script.irrigation",
+                      "name": "Avvia script",
+                      "icon_height": "40px",
+                      "icon": "mdi:watering-can",
+                      "show_state": false
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "switch.toggle",
+                        "service_data": {
+                          "entity_id": "switch.presa_balcone"
+                        }
+                      },
+                      "entity": "binary_sensor.pump",
+                      "show_name": true,
+                      "icon_height": "40px",
+                      "name": "Pompa"
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "input_number.irrigation_period",
+                      "type": "custom:numberbox-card",
+                      "icon": "mdi:timelapse",
+                      "name": "Frequenza",
+                      "unit": ""
+                    },
+                    {
+                      "entity": "input_number.irrigation_duration",
+                      "type": "custom:numberbox-card",
+                      "icon": "mdi:timelapse",
+                      "name": "Durata",
+                      "unit": "time"
+                    },
+                    {
+                      "entity": "input_datetime.last_irrigation",
+                      "name": "Ultima irrigazione effettuata"
+                    }
+                  ]
+                },
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "icon_height": "1px",
+                  "name": "Circa 100ml in 10 minuti per ogni gocciolatoio",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                }
+              ],
+              "columns": 1,
+              "square": false
+            }
+          ]
+        },
+        {
+          "title": "Stanze",
+          "path": "stanze",
+          "icon": "mdi:view-dashboard",
+          "cards": [],
+          "type": "sections",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/sala"
+                  },
+                  "icon": "mdi:sofa",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/cucina"
+                  },
+                  "icon": "mdi:silverware-fork-knife",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/tommaso"
+                  },
+                  "icon": "mdi:human-child",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/studio"
+                  },
+                  "icon": "mdi:desk",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                }
+              ],
+              "title": "Stanze"
+            }
+          ],
+          "max_columns": 4,
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ]
+        },
+        {
+          "icon": "mdi:server",
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "badges": [
+            {
+              "entity": "binary_sensor.backups_stale"
+            },
+            {
+              "entity": "sensor.ht_1_t"
+            },
+            {
+              "entity": "sensor.ht_1_h"
+            }
+          ],
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                "sensor.last_boot"
+              ]
+            },
+            {
+              "show_name": true,
+              "show_icon": true,
+              "type": "button",
+              "tap_action": {
+                "action": "call-service",
+                "service": "homekit.reload"
+              },
+              "icon_height": "30px",
+              "icon": "mdi:reload",
+              "name": "HomeKit reload",
+              "show_state": false
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "gauge",
+                      "min": 0,
+                      "max": 100,
+                      "entity": "sensor.processor_use"
+                    },
+                    {
+                      "graph": "line",
+                      "hours_to_show": 24,
+                      "type": "sensor",
+                      "entity": "sensor.processor_temperature",
+                      "detail": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "gauge",
+                      "entity": "sensor.load_1m",
+                      "min": 0,
+                      "max": 1
+                    },
+                    {
+                      "type": "gauge",
+                      "min": 0,
+                      "max": 1,
+                      "entity": "sensor.load_5m"
+                    },
+                    {
+                      "type": "gauge",
+                      "min": 0,
+                      "max": 1,
+                      "entity": "sensor.load_15m"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "gauge",
+                      "min": 0,
+                      "max": 100,
+                      "entity": "sensor.memory_use_percent"
+                    },
+                    {
+                      "type": "sensor",
+                      "graph": "line",
+                      "entity": "sensor.memory_free"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "gauge",
+                      "min": 0,
+                      "max": 100,
+                      "entity": "sensor.disk_use_percent"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.mariadb_size",
+                      "detail": 1
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.influxdb_ha_db_size",
+                      "detail": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "graph": "line",
+                      "type": "sensor",
+                      "name": "Download",
+                      "detail": 1,
+                      "entity": "sensor.speedtest_download"
+                    },
+                    {
+                      "graph": "line",
+                      "type": "sensor",
+                      "name": "Upload",
+                      "detail": 1,
+                      "entity": "sensor.speedtest_upload"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "graph": "none",
+                      "type": "sensor",
+                      "name": "Download (daily avg)",
+                      "detail": 1,
+                      "entity": "sensor.daily_avg_download_speed"
+                    },
+                    {
+                      "graph": "none",
+                      "type": "sensor",
+                      "name": "Upload (daily avg)",
+                      "detail": 1,
+                      "entity": "sensor.daily_avg_upload_speed"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "graph": "none",
+                      "type": "sensor",
+                      "name": "Download (daily min)",
+                      "detail": 1,
+                      "entity": "sensor.daily_min_download_speed"
+                    },
+                    {
+                      "graph": "none",
+                      "type": "sensor",
+                      "entity": "sensor.daily_min_upload_speed",
+                      "name": "Upload (daily avg)",
+                      "detail": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "name": "#GD",
+                      "detail": 1,
+                      "entity": "sensor.gdb_backups_in_google_drive"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.gdb_size_in_google_drive",
+                      "detail": 1,
+                      "name": "GD size"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.gdb_free_space_in_google_drive",
+                      "name": "GD free",
+                      "detail": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "name": "#local",
+                      "detail": 1,
+                      "entity": "sensor.gdb_backups_in_home_assistant"
+                    },
+                    {
+                      "hours_to_show": 24,
+                      "graph": "line",
+                      "type": "sensor",
+                      "entity": "sensor.gdb_size_in_home_assistant",
+                      "detail": 1,
+                      "name": "local size"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "mdi:chart-line",
+          "panel": true,
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "iframe",
+                  "url": "http://192.168.1.12:8123/api/hassio_ingress/ZK6QngKc_hbpVl1ZySSn30IPbODcoYxMJrjX7BeNvBU/d/7GUOvILVk/consumi?orgId=1&refresh=10s"
+                }
+              ]
+            }
+          ],
+          "type": "panel",
+          "subview": false,
+          "path": "graphana"
+        },
+        {
+          "icon": "mdi:lightbulb-multiple",
+          "type": "sections",
+          "max_columns": 4,
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "group.luci",
+                  "icon": "mdi:lightbulb-group",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "group.luci_zona_giorno",
+                  "icon": "mdi:white-balance-sunny",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "group.luci_zona_notte",
+                  "icon": "mdi:moon-waning-crescent",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": false,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "icon": "",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "light.ingresso",
+                  "icon": "mdi:light-recessed",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "light.flos_aim",
+                  "icon": "mdi:table-furniture",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "light.led_divano",
+                  "icon": "mdi:sofa",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "light.flos_ic_t2",
+                  "icon": "mdi:lamp",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "light.led_cucina_virtual",
+                  "icon": "mdi:wall-sconce-flat",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "light.luce_penisola",
+                  "icon": "mdi:ceiling-light-multiple",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "light.led_pensili",
+                  "icon": "mdi:pot-steam",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": false,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "icon": "",
+                  "show_state": false
+                },
+                {
+                  "show_name": false,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "entity": "light.corridoio",
+                  "icon": "mdi:light-recessed",
+                  "show_state": false
+                }
+              ]
+            }
+          ],
+          "cards": [],
+          "subview": false,
+          "visible": []
+        },
+        {
+          "theme": "Backend-selected",
+          "icon": "mdi:server",
+          "type": "panel",
+          "cards": [
+            {
+              "type": "iframe",
+              "url": "http://192.168.1.12:8123/api/hassio_ingress/ZK6QngKc_hbpVl1ZySSn30IPbODcoYxMJrjX7BeNvBU/d/CRteMILVz/sys-stas?orgId=1&refresh=10s"
+            }
+          ],
+          "subview": true,
+          "path": "sistema"
+        },
+        {
+          "type": "panel",
+          "subview": true,
+          "icon": "mdi:speedometer",
+          "path": "rete",
+          "cards": [
+            {
+              "type": "iframe",
+              "url": "http://192.168.1.12:8123/api/hassio_ingress/ZK6QngKc_hbpVl1ZySSn30IPbODcoYxMJrjX7BeNvBU/d/bdp1gkkvhs740c/network-stats?orgId=1&from=1718608782496&to=1718619582496"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "path": "sala",
+          "panel": false,
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "icon": "mdi:sofa",
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "group.luci_sala",
+                  "icon": "hass:lightbulb",
+                  "icon_height": "36px"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "cover.living_big"
+                    },
+                    {
+                      "entity": "cover.living_small"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "gauge",
+                      "entity": "sensor.living_big_cover_position",
+                      "min": 0,
+                      "max": 100,
+                      "unit": "%",
+                      "name": "Balcone"
+                    },
+                    {
+                      "type": "gauge",
+                      "entity": "sensor.living_small_cover_position",
+                      "min": 0,
+                      "max": 100,
+                      "unit": "%",
+                      "name": "Finestra"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.flos_aim_p"
+                    },
+                    {
+                      "entity": "sensor.d_energy_flos_aim"
+                    },
+                    {
+                      "entity": "sensor.m_energy_flos_aim"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.led_divano_p"
+                    },
+                    {
+                      "entity": "sensor.d_energy_led_divano"
+                    },
+                    {
+                      "entity": "sensor.m_energy_led_divano"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.luce_ingresso_p"
+                    },
+                    {
+                      "entity": "sensor.d_energy_luce_ingresso"
+                    },
+                    {
+                      "entity": "sensor.m_energy_luce_ingresso"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.luci_sala_t"
+                    },
+                    {
+                      "entity": "sensor.luci_sala_talarm"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.ingresso_t"
+                    },
+                    {
+                      "entity": "sensor.ingresso_talarm"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.living_big_cover_p"
+                    },
+                    {
+                      "entity": "sensor.cover_d_energy_living_big"
+                    },
+                    {
+                      "entity": "sensor.cover_m_energy_living_big"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.living_big_cover_t"
+                    },
+                    {
+                      "entity": "sensor.living_big_cover_talarm"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.living_small_cover_p"
+                    },
+                    {
+                      "entity": "sensor.cover_d_energy_living_small"
+                    },
+                    {
+                      "entity": "sensor.cover_m_energy_living_small"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.living_small_cover_t"
+                    },
+                    {
+                      "entity": "sensor.living_small_cover_talarm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "sensor",
+                  "entity": "sensor.hvac_living_room_temperature",
+                  "graph": "line",
+                  "name": "Temperatura"
+                },
+                {
+                  "type": "thermostat",
+                  "entity": "climate.hvac_living",
+                  "name": "Climatizzatore"
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_select.hvac_living_hvane",
+                  "name": "Deflettori orizzontali"
+                }
+              ]
+            },
+            {
+              "type": "picture-elements",
+              "elements": [
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.flos_aim",
+                  "style": {
+                    "top": "65%",
+                    "left": "36%"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.ingresso",
+                  "style": {
+                    "top": "18%",
+                    "left": "22%"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.led_divano",
+                  "style": {
+                    "top": "90%",
+                    "left": "74%"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.flos_ic_t2",
+                  "style": {
+                    "top": "34.75%",
+                    "left": "82.5%",
+                    "transform": "scale(0.9,0.9)"
+                  }
+                },
+                {
+                  "type": "state-badge",
+                  "entity": "sensor.hvac_living_room_temperature",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/sala"
+                  },
+                  "style": {
+                    "top": "24%",
+                    "left": "7%",
+                    "color": "rgba(0,0,0,0)"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "entity": "cover.living_small",
+                  "style": {
+                    "top": "67%",
+                    "left": "95%"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "entity": "cover.living_big",
+                  "style": {
+                    "top": "52%",
+                    "left": "95%"
+                  }
+                }
+              ],
+              "image": "local/living.png"
+            },
+            {
+              "type": "media-control",
+              "entity": "media_player.samsung_q95t"
+            }
+          ],
+          "subview": true
+        },
+        {
+          "title": "",
+          "path": "cucina",
+          "panel": false,
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "icon": "mdi:silverware-variant",
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "group.luci_cucina",
+                  "icon": "hass:lightbulb",
+                  "icon_height": "36px"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    "cover.kitchen"
+                  ]
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.kitchen_cover_position",
+                  "min": 0,
+                  "max": 100,
+                  "unit": "%",
+                  "name": "Tapparelle"
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.led_cucina_p"
+                    },
+                    {
+                      "entity": "sensor.d_energy_led_cucina"
+                    },
+                    {
+                      "entity": "sensor.m_energy_led_cucina"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.kitchen_cover_p"
+                    },
+                    {
+                      "entity": "sensor.cover_d_energy_kitchen"
+                    },
+                    {
+                      "entity": "sensor.cover_m_energy_kitchen"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.led_cucina_t"
+                    },
+                    {
+                      "entity": "sensor.led_cucina_talarm"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.kitchen_cover_t"
+                    },
+                    {
+                      "entity": "sensor.kitchen_cover_talarm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "picture-elements",
+              "elements": [
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.led_cucina_virtual",
+                  "style": {
+                    "top": "62%",
+                    "left": "50%"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "entity": "cover.kitchen",
+                  "style": {
+                    "top": "34%",
+                    "left": "97%"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.luce_penisola",
+                  "style": {
+                    "top": "30%",
+                    "left": "74%"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.led_pensili",
+                  "style": {
+                    "top": "80%",
+                    "left": "15%"
+                  }
+                }
+              ],
+              "image": "local/kitchen.png"
+            },
+            {
+              "type": "grid",
+              "columns": 3,
+              "cards": [
+                {
+                  "type": "sensor",
+                  "entity": "sensor.ht_2_t",
+                  "graph": "line"
+                },
+                {
+                  "type": "sensor",
+                  "entity": "sensor.ht_2_h",
+                  "graph": "line"
+                },
+                {
+                  "type": "sensor",
+                  "entity": "sensor.ht_2_battery",
+                  "graph": "line"
+                }
+              ]
+            }
+          ],
+          "subview": true
+        },
+        {
+          "title": "",
+          "path": "camera",
+          "panel": false,
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "icon": "mdi:bed",
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "group.luci_camera",
+                  "icon": "hass:lightbulb",
+                  "icon_height": "36px"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "cover.bedroom"
+                    }
+                  ]
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.bedroom_cover_position",
+                  "min": 0,
+                  "max": 100,
+                  "unit": "%",
+                  "name": "Tapparelle"
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.bedroom_cover_p"
+                    },
+                    {
+                      "entity": "sensor.cover_d_energy_bedroom"
+                    },
+                    {
+                      "entity": "sensor.cover_m_energy_bedroom"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.bedroom_cover_t"
+                    },
+                    {
+                      "entity": "sensor.bedroom_cover_talarm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "sensor",
+                  "entity": "sensor.hvac_bedroom_room_temperature",
+                  "graph": "line",
+                  "name": "Temperatura"
+                },
+                {
+                  "type": "thermostat",
+                  "entity": "climate.hvac_bedroom",
+                  "name": "Climatizzatore"
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_select.hvac_bedroom_hvane",
+                  "name": "Deflettori orizzontali"
+                }
+              ]
+            },
+            {
+              "type": "picture-elements",
+              "elements": [
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.flos_ariette",
+                  "style": {
+                    "top": "55%",
+                    "left": "70%"
+                  }
+                },
+                {
+                  "type": "state-badge",
+                  "entity": "sensor.hvac_bedroom_room_temperature",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/camera"
+                  },
+                  "style": {
+                    "top": "86%",
+                    "left": "7%",
+                    "color": "rgba(0,0,0,0)"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "entity": "cover.bedroom",
+                  "style": {
+                    "top": "4%",
+                    "left": "42%"
+                  }
+                }
+              ],
+              "image": "local/bedroom.png"
+            }
+          ],
+          "subview": true
+        },
+        {
+          "title": "",
+          "path": "studio",
+          "panel": false,
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "icon": "mdi:desk",
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "group.luci_studio",
+                  "icon": "hass:lightbulb",
+                  "icon_height": "36px"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "cover.study"
+                    }
+                  ]
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.study_cover_position",
+                  "min": 0,
+                  "max": 100,
+                  "unit": "%",
+                  "name": "Tapparelle"
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.study_cover_p"
+                    },
+                    {
+                      "entity": "sensor.cover_d_energy_study"
+                    },
+                    {
+                      "entity": "sensor.cover_m_energy_study"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.study_cover_t"
+                    },
+                    {
+                      "entity": "sensor.study_cover_talarm"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.luce_studio_p"
+                    },
+                    {
+                      "entity": "sensor.d_energy_luce_studio"
+                    },
+                    {
+                      "entity": "sensor.m_energy_luce_studio"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.faretti_studio_p"
+                    },
+                    {
+                      "entity": "sensor.d_energy_faretti_studio"
+                    },
+                    {
+                      "entity": "sensor.m_energy_faretti_studio"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.luci_studio_t"
+                    },
+                    {
+                      "entity": "sensor.luci_studio_talarm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "sensor",
+                  "entity": "sensor.hvac_study_room_temperature",
+                  "graph": "line",
+                  "name": "Temperatura"
+                },
+                {
+                  "type": "thermostat",
+                  "entity": "climate.hvac_study",
+                  "name": "Climatizzatore"
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_select.hvac_study_hvane",
+                  "name": "Deflettori orizzontali"
+                }
+              ]
+            },
+            {
+              "type": "picture-elements",
+              "elements": [
+                {
+                  "type": "state-badge",
+                  "entity": "sensor.hvac_study_room_temperature",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/studio"
+                  },
+                  "style": {
+                    "top": "20%",
+                    "left": "47%",
+                    "color": "rgba(0,0,0,0)"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.luce_studio",
+                  "style": {
+                    "top": "52%",
+                    "left": "45%"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.faretti_studio",
+                  "style": {
+                    "top": "70%",
+                    "left": "58%"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "icon": "mdi:led-strip-variant",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.led_desk",
+                  "style": {
+                    "top": "13.5%",
+                    "left": "55%",
+                    "transform": "scale(0.9,0.9)"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "entity": "cover.study",
+                  "style": {
+                    "top": "31%",
+                    "left": "77%"
+                  }
+                }
+              ],
+              "image": "local/study.png"
+            },
+            {
+              "type": "light",
+              "entity": "light.led_desk",
+              "icon": "mdi:led-strip-variant"
+            }
+          ],
+          "subview": true
+        },
+        {
+          "title": "",
+          "path": "tommaso",
+          "panel": false,
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "icon": "mdi:human-child",
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "group.luci_tommaso",
+                  "icon": "hass:lightbulb",
+                  "icon_height": "36px"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "cover.tommy"
+                    }
+                  ]
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.tommy_cover_position",
+                  "min": 0,
+                  "max": 100,
+                  "unit": "%",
+                  "name": "Tapparelle"
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.tommy_cover_p"
+                    },
+                    {
+                      "entity": "sensor.cover_d_energy_tommy"
+                    },
+                    {
+                      "entity": "sensor.cover_m_energy_tommy"
+                    }
+                  ]
+                },
+                {
+                  "type": "glance",
+                  "entities": [
+                    {
+                      "entity": "sensor.tommy_cover_t"
+                    },
+                    {
+                      "entity": "sensor.tommy_cover_talarm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "sensor",
+                  "entity": "sensor.hvac_tommy_room_temperature",
+                  "graph": "line",
+                  "name": "Temperatura"
+                },
+                {
+                  "type": "thermostat",
+                  "entity": "climate.hvac_tommy",
+                  "name": "Climatizzatore"
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_select.hvac_tommy_hvane",
+                  "name": "Deflettori orizzontali"
+                }
+              ]
+            },
+            {
+              "type": "picture-elements",
+              "elements": [
+                {
+                  "type": "state-icon",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "entity": "light.tommaso",
+                  "style": {
+                    "top": "49%",
+                    "left": "48%"
+                  }
+                },
+                {
+                  "type": "state-badge",
+                  "entity": "sensor.hvac_tommy_room_temperature",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/camera_tommaso"
+                  },
+                  "style": {
+                    "top": "40%",
+                    "left": "87%",
+                    "color": "rgba(0,0,0,0)"
+                  }
+                },
+                {
+                  "type": "state-icon",
+                  "entity": "cover.tommy",
+                  "style": {
+                    "top": "13%",
+                    "left": "77%"
+                  }
+                }
+              ],
+              "image": "local/childroom.png"
+            }
+          ],
+          "subview": true
+        },
+        {
+          "title": "",
+          "path": "old_default",
+          "panel": false,
+          "visible": [],
           "icon": "mdi:home",
           "badges": [
             {
@@ -1898,779 +5334,11 @@
           ]
         },
         {
-          "icon": "mdi:cctv",
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "badges": [],
-          "cards": [
-            {
-              "show_state": false,
-              "show_name": false,
-              "camera_view": "live",
-              "type": "picture-entity",
-              "entity": "camera.tapo_c110_1080p",
-              "camera_image": "camera.tapo_c110",
-              "name": "1080p"
-            }
-          ]
-        },
-        {
-          "icon": "mdi:music",
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "badges": [],
-          "cards": [
-            {
-              "type": "custom:mini-media-player",
-              "entity": "media_player.echo_dot_cucina",
-              "group": false,
-              "artwork": "full-cover",
-              "tts": {
-                "platform": "alexa",
-                "enity_id": "media_player.echo_dot_cucina"
-              }
-            },
-            {
-              "type": "custom:mini-media-player",
-              "entity": "media_player.echo_dot_black",
-              "group": false,
-              "artwork": "full-cover",
-              "tts": {
-                "platform": "alexa",
-                "enity_id": "media_player.echo_dot_black"
-              }
-            },
-            {
-              "type": "custom:mini-media-player",
-              "entity": "media_player.multi_room",
-              "group": false,
-              "artwork": "full-cover",
-              "tts": {
-                "platform": "alexa",
-                "enity_id": "media_player.multi_room"
-              }
-            },
-            {
-              "type": "media-control",
-              "entity": "media_player.samsung_q95t"
-            }
-          ]
-        },
-        {
-          "title": "Condizionamento",
-          "path": "condizionamento3",
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "icon": "mdi:thermometer",
-          "badges": [],
-          "cards": [
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "thermostat",
-                      "entity": "climate.hvac_living"
-                    },
-                    {
-                      "type": "thermostat",
-                      "entity": "climate.hvac_bedroom"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_select.hvac_living_hvane"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_select.hvac_bedroom_hvane"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_number.hvac_living_timer",
-                          "type": "custom:numberbox-card",
-                          "icon": "mdi:timelapse",
-                          "unit": "MIN"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_number.hvac_bedroom_timer",
-                          "type": "custom:numberbox-card",
-                          "icon": "mdi:timelapse",
-                          "unit": "MIN"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "gauge",
-                      "entity": "input_number.hvac_living_counter",
-                      "min": 0,
-                      "max": 600
-                    },
-                    {
-                      "type": "gauge",
-                      "entity": "input_number.hvac_bedroom_counter",
-                      "min": 0,
-                      "max": 600
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.hvac_living_energy"
-                    },
-                    {
-                      "entity": "sensor.hvac_bedroom_energy"
-                    }
-                  ]
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "sensor.d_energy_mel_big"
-                    },
-                    {
-                      "entity": "sensor.m_energy_mel_big"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "thermostat",
-                      "entity": "climate.hvac_study"
-                    },
-                    {
-                      "type": "thermostat",
-                      "entity": "climate.hvac_tommy"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_select.hvac_study_hvane"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_select.hvac_tommy_hvane"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_number.hvac_study_timer",
-                          "type": "custom:numberbox-card",
-                          "icon": "mdi:timelapse",
-                          "unit": "MIN"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "entities",
-                      "entities": [
-                        {
-                          "entity": "input_number.hvac_tommy_timer",
-                          "type": "custom:numberbox-card",
-                          "icon": "mdi:timelapse",
-                          "unit": "MIN"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "gauge",
-                      "entity": "input_number.hvac_study_counter",
-                      "min": 0,
-                      "max": 600
-                    },
-                    {
-                      "type": "gauge",
-                      "entity": "input_number.hvac_tommy_counter",
-                      "min": 0,
-                      "max": 600
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.hvac_study_energy"
-                    },
-                    {
-                      "entity": "sensor.hvac_tommy_energy"
-                    }
-                  ]
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "sensor.d_energy_mel_small"
-                    },
-                    {
-                      "entity": "sensor.m_energy_mel_small"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "input_boolean.hvac_living_dry_def"
-                    },
-                    {
-                      "entity": "input_boolean.hvac_bedroom_dry_def"
-                    },
-                    {
-                      "entity": "input_boolean.hvac_study_dry_def"
-                    },
-                    {
-                      "entity": "input_boolean.hvac_tommy_dry_def"
-                    }
-                  ]
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "input_boolean.hvac_living_cool_def"
-                    },
-                    {
-                      "entity": "input_boolean.hvac_bedroom_cool_def"
-                    },
-                    {
-                      "entity": "input_boolean.hvac_study_cool_def"
-                    },
-                    {
-                      "entity": "input_boolean.hvac_tommy_cool_def"
-                    }
-                  ]
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "input_boolean.hvac_living_heat_def"
-                    },
-                    {
-                      "entity": "input_boolean.hvac_bedroom_heat_def"
-                    },
-                    {
-                      "entity": "input_boolean.hvac_study_heat_def"
-                    },
-                    {
-                      "entity": "input_boolean.hvac_tommy_heat_def"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "icon": "mdi:chart-areaspline",
-          "panel": true,
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "badges": [],
-          "cards": [
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "iframe",
-                  "url": "http://192.168.1.12:8123/api/hassio_ingress/ZK6QngKc_hbpVl1ZySSn30IPbODcoYxMJrjX7BeNvBU/d/7GUOvILVk/consumi?orgId=1&refresh=10s"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "icon": "mdi:server",
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "badges": [
-            {
-              "entity": "sensor.git_alarm"
-            },
-            {
-              "entity": "binary_sensor.backups_stale"
-            },
-            {
-              "entity": "sensor.ht_1_t"
-            },
-            {
-              "entity": "sensor.ht_1_h"
-            }
-          ],
-          "cards": [
-            {
-              "type": "entities",
-              "entities": [
-                "sensor.last_boot"
-              ]
-            },
-            {
-              "show_name": true,
-              "show_icon": true,
-              "type": "button",
-              "tap_action": {
-                "action": "call-service",
-                "service": "homekit.reload"
-              },
-              "icon_height": "30px",
-              "icon": "mdi:reload",
-              "name": "HomeKit reload",
-              "show_state": false
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "gauge",
-                      "min": 0,
-                      "max": 100,
-                      "entity": "sensor.processor_use"
-                    },
-                    {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "entity": "sensor.cpu_temperature",
-                      "detail": 1
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "gauge",
-                      "entity": "sensor.load_1m",
-                      "min": 0,
-                      "max": 1
-                    },
-                    {
-                      "type": "gauge",
-                      "min": 0,
-                      "max": 1,
-                      "entity": "sensor.load_5m"
-                    },
-                    {
-                      "type": "gauge",
-                      "min": 0,
-                      "max": 1,
-                      "entity": "sensor.load_15m"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "gauge",
-                      "min": 0,
-                      "max": 100,
-                      "entity": "sensor.memory_use_percent"
-                    },
-                    {
-                      "type": "sensor",
-                      "graph": "line",
-                      "entity": "sensor.memory_free"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "gauge",
-                      "min": 0,
-                      "max": 100,
-                      "entity": "sensor.disk_use_percent"
-                    },
-                    {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "entity": "sensor.mariadb_size",
-                      "detail": 1
-                    },
-                    {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "entity": "sensor.influxdb_ha_db_size",
-                      "detail": 1
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "sensor",
-                      "entity": "sensor.network_throughput_in_eth0",
-                      "graph": "line",
-                      "name": "Throughput IN"
-                    },
-                    {
-                      "type": "sensor",
-                      "graph": "line",
-                      "entity": "sensor.network_throughput_out_eth0",
-                      "name": "Throughput OUT"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "sensor",
-                      "entity": "sensor.network_in_daily",
-                      "name": "IN giornaliero"
-                    },
-                    {
-                      "type": "sensor",
-                      "entity": "sensor.network_out_daily",
-                      "name": "OUT giornaliero"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "sensor",
-                      "entity": "sensor.network_in_monthly",
-                      "name": "IN mensile"
-                    },
-                    {
-                      "type": "sensor",
-                      "entity": "sensor.network_out_monthly",
-                      "name": "OUT mensile"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "name": "#GD",
-                      "detail": 1,
-                      "entity": "sensor.gdb_backups_in_google_drive"
-                    },
-                    {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "entity": "sensor.gdb_size_in_google_drive",
-                      "detail": 1,
-                      "name": "GD size"
-                    },
-                    {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "entity": "sensor.gdb_free_space_in_google_drive",
-                      "name": "GD free",
-                      "detail": 1
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "name": "#local",
-                      "detail": 1,
-                      "entity": "sensor.gdb_backups_in_home_assistant"
-                    },
-                    {
-                      "hours_to_show": 24,
-                      "graph": "line",
-                      "type": "sensor",
-                      "entity": "sensor.gdb_size_in_home_assistant",
-                      "detail": 1,
-                      "name": "local size"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "theme": "Backend-selected",
-          "icon": "mdi:chart-bar-stacked",
-          "type": "panel",
-          "badges": [],
-          "cards": [
-            {
-              "type": "iframe",
-              "url": "http://192.168.1.12:8123/api/hassio_ingress/ZK6QngKc_hbpVl1ZySSn30IPbODcoYxMJrjX7BeNvBU/d/CRteMILVz/sys-stas?orgId=1&refresh=10s"
-            }
-          ]
-        },
-        {
-          "icon": "mdi:sprout",
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "badges": [],
-          "cards": [
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "entity": "input_boolean.irrigation_active",
-                      "icon_height": "40px",
-                      "name": "Sched. auto",
-                      "icon": "mdi:history"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "input_boolean.toggle",
-                        "service_data": {
-                          "entity_id": "input_boolean.irrigation_freq_minutes"
-                        }
-                      },
-                      "entity": "binary_sensor.irrigation_freq_mode",
-                      "show_name": true,
-                      "icon_height": "40px",
-                      "name": "Freq. mode",
-                      "show_state": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "entity": "script.irrigation",
-                      "name": "Avvia script",
-                      "icon_height": "40px",
-                      "icon": "mdi:watering-can",
-                      "show_state": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "switch.toggle",
-                        "service_data": {
-                          "entity_id": "switch.presa_balcone"
-                        }
-                      },
-                      "entity": "binary_sensor.pump",
-                      "show_name": true,
-                      "icon_height": "40px",
-                      "name": "Pompa"
-                    }
-                  ]
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "input_number.irrigation_period",
-                      "type": "custom:numberbox-card",
-                      "icon": "mdi:timelapse",
-                      "name": "Frequenza",
-                      "unit": ""
-                    },
-                    {
-                      "entity": "input_number.irrigation_duration",
-                      "type": "custom:numberbox-card",
-                      "icon": "mdi:timelapse",
-                      "name": "Durata",
-                      "unit": "time"
-                    },
-                    {
-                      "entity": "input_datetime.last_irrigation",
-                      "name": "Ultima irrigazione effettuata"
-                    }
-                  ]
-                },
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "none"
-                  },
-                  "icon_height": "1px",
-                  "name": "Circa 100ml in 10 minuti per ogni gocciolatoio",
-                  "hold_action": {
-                    "action": "none"
-                  }
-                }
-              ],
-              "columns": 1,
-              "square": false
-            }
-          ]
-        },
-        {
-          "theme": "Backend-selected",
-          "path": "tmp",
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "icon": "mdi:sun-clock",
-          "badges": [],
-          "cards": [
-            {
-              "type": "entities",
-              "entities": [
-                "sun.sun"
-              ]
-            },
-            {
-              "type": "history-graph",
-              "entities": [
-                {
-                  "entity": "sensor.sun_elevation"
-                }
-              ],
-              "hours_to_show": 48
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "input_number.elevation_l1"
-                }
-              ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                "input_number.elevation_l2"
-              ]
-            }
-          ]
-        },
-        {
           "title": "Piantina",
           "path": "piantina",
           "panel": true,
           "icon": "mdi:map",
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "badges": [],
+          "visible": [],
           "cards": [
             {
               "type": "picture-elements",
@@ -3023,930 +5691,39 @@
           ]
         },
         {
-          "title": "",
-          "path": "sala",
-          "panel": false,
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "icon": "mdi:sofa",
-          "badges": [],
-          "cards": [
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "group.luci_sala",
-                  "icon": "hass:lightbulb",
-                  "icon_height": "36px"
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "cover.living_big"
-                    },
-                    {
-                      "entity": "cover.living_small"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "gauge",
-                      "entity": "sensor.living_big_cover_position",
-                      "min": 0,
-                      "max": 100,
-                      "unit": "%",
-                      "name": "Balcone"
-                    },
-                    {
-                      "type": "gauge",
-                      "entity": "sensor.living_small_cover_position",
-                      "min": 0,
-                      "max": 100,
-                      "unit": "%",
-                      "name": "Finestra"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.flos_aim_p"
-                    },
-                    {
-                      "entity": "sensor.d_energy_flos_aim"
-                    },
-                    {
-                      "entity": "sensor.m_energy_flos_aim"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.led_divano_p"
-                    },
-                    {
-                      "entity": "sensor.d_energy_led_divano"
-                    },
-                    {
-                      "entity": "sensor.m_energy_led_divano"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.luce_ingresso_p"
-                    },
-                    {
-                      "entity": "sensor.d_energy_luce_ingresso"
-                    },
-                    {
-                      "entity": "sensor.m_energy_luce_ingresso"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.luci_sala_t"
-                    },
-                    {
-                      "entity": "sensor.luci_sala_talarm"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.ingresso_t"
-                    },
-                    {
-                      "entity": "sensor.ingresso_talarm"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.living_big_cover_p"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_living_big"
-                    },
-                    {
-                      "entity": "sensor.cover_m_energy_living_big"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.living_big_cover_t"
-                    },
-                    {
-                      "entity": "sensor.living_big_cover_talarm"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.living_small_cover_p"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_living_small"
-                    },
-                    {
-                      "entity": "sensor.cover_m_energy_living_small"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.living_small_cover_t"
-                    },
-                    {
-                      "entity": "sensor.living_small_cover_talarm"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "sensor",
-                  "entity": "sensor.hvac_living_room_temperature",
-                  "graph": "line",
-                  "name": "Temperatura"
-                },
-                {
-                  "type": "thermostat",
-                  "entity": "climate.hvac_living",
-                  "name": "Climatizzatore"
-                },
-                {
-                  "type": "entity",
-                  "entity": "input_select.hvac_living_hvane",
-                  "name": "Deflettori orizzontali"
-                }
-              ]
-            },
-            {
-              "type": "picture-elements",
-              "elements": [
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.flos_aim",
-                  "style": {
-                    "top": "65%",
-                    "left": "36%"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.ingresso",
-                  "style": {
-                    "top": "18%",
-                    "left": "22%"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.led_divano",
-                  "style": {
-                    "top": "90%",
-                    "left": "74%"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.flos_ic_t2",
-                  "style": {
-                    "top": "34.75%",
-                    "left": "82.5%",
-                    "transform": "scale(0.9,0.9)"
-                  }
-                },
-                {
-                  "type": "state-badge",
-                  "entity": "sensor.hvac_living_room_temperature",
-                  "tap_action": {
-                    "action": "navigate",
-                    "navigation_path": "/lovelace/sala"
-                  },
-                  "style": {
-                    "top": "24%",
-                    "left": "7%",
-                    "color": "rgba(0,0,0,0)"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "entity": "cover.living_small",
-                  "style": {
-                    "top": "67%",
-                    "left": "95%"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "entity": "cover.living_big",
-                  "style": {
-                    "top": "52%",
-                    "left": "95%"
-                  }
-                }
-              ],
-              "image": "local/living.png"
-            },
-            {
-              "type": "media-control",
-              "entity": "media_player.samsung_q95t"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "path": "cucina",
-          "panel": false,
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "icon": "mdi:silverware-variant",
-          "badges": [],
-          "cards": [
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "group.luci_cucina",
-                  "icon": "hass:lightbulb",
-                  "icon_height": "36px"
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    "cover.kitchen"
-                  ]
-                },
-                {
-                  "type": "gauge",
-                  "entity": "sensor.kitchen_cover_position",
-                  "min": 0,
-                  "max": 100,
-                  "unit": "%",
-                  "name": "Tapparelle"
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.led_cucina_p"
-                    },
-                    {
-                      "entity": "sensor.d_energy_led_cucina"
-                    },
-                    {
-                      "entity": "sensor.m_energy_led_cucina"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.kitchen_cover_p"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_kitchen"
-                    },
-                    {
-                      "entity": "sensor.cover_m_energy_kitchen"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.led_cucina_t"
-                    },
-                    {
-                      "entity": "sensor.led_cucina_talarm"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.kitchen_cover_t"
-                    },
-                    {
-                      "entity": "sensor.kitchen_cover_talarm"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "picture-elements",
-              "elements": [
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.led_cucina_virtual",
-                  "style": {
-                    "top": "62%",
-                    "left": "50%"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "entity": "cover.kitchen",
-                  "style": {
-                    "top": "34%",
-                    "left": "97%"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.luce_penisola",
-                  "style": {
-                    "top": "30%",
-                    "left": "74%"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.led_pensili",
-                  "style": {
-                    "top": "80%",
-                    "left": "15%"
-                  }
-                }
-              ],
-              "image": "local/kitchen.png"
-            },
-            {
-              "type": "grid",
-              "columns": 3,
-              "cards": [
-                {
-                  "type": "sensor",
-                  "entity": "sensor.ht_2_t",
-                  "graph": "line"
-                },
-                {
-                  "type": "sensor",
-                  "entity": "sensor.ht_2_h",
-                  "graph": "line"
-                },
-                {
-                  "type": "sensor",
-                  "entity": "sensor.ht_2_battery",
-                  "graph": "line"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "title": "",
-          "path": "camera",
-          "panel": false,
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "icon": "mdi:bed",
-          "badges": [],
-          "cards": [
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "group.luci_camera",
-                  "icon": "hass:lightbulb",
-                  "icon_height": "36px"
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "cover.bedroom"
-                    }
-                  ]
-                },
-                {
-                  "type": "gauge",
-                  "entity": "sensor.bedroom_cover_position",
-                  "min": 0,
-                  "max": 100,
-                  "unit": "%",
-                  "name": "Tapparelle"
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.bedroom_cover_p"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_bedroom"
-                    },
-                    {
-                      "entity": "sensor.cover_m_energy_bedroom"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.bedroom_cover_t"
-                    },
-                    {
-                      "entity": "sensor.bedroom_cover_talarm"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "sensor",
-                  "entity": "sensor.hvac_bedroom_room_temperature",
-                  "graph": "line",
-                  "name": "Temperatura"
-                },
-                {
-                  "type": "thermostat",
-                  "entity": "climate.hvac_bedroom",
-                  "name": "Climatizzatore"
-                },
-                {
-                  "type": "entity",
-                  "entity": "input_select.hvac_bedroom_hvane",
-                  "name": "Deflettori orizzontali"
-                }
-              ]
-            },
-            {
-              "type": "picture-elements",
-              "elements": [
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.flos_ariette",
-                  "style": {
-                    "top": "55%",
-                    "left": "70%"
-                  }
-                },
-                {
-                  "type": "state-badge",
-                  "entity": "sensor.hvac_bedroom_room_temperature",
-                  "tap_action": {
-                    "action": "navigate",
-                    "navigation_path": "/lovelace/camera"
-                  },
-                  "style": {
-                    "top": "86%",
-                    "left": "7%",
-                    "color": "rgba(0,0,0,0)"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "entity": "cover.bedroom",
-                  "style": {
-                    "top": "4%",
-                    "left": "42%"
-                  }
-                }
-              ],
-              "image": "local/bedroom.png"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "path": "studio",
-          "panel": false,
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "icon": "mdi:desk",
-          "badges": [],
-          "cards": [
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "group.luci_studio",
-                  "icon": "hass:lightbulb",
-                  "icon_height": "36px"
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "cover.study"
-                    }
-                  ]
-                },
-                {
-                  "type": "gauge",
-                  "entity": "sensor.study_cover_position",
-                  "min": 0,
-                  "max": 100,
-                  "unit": "%",
-                  "name": "Tapparelle"
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.study_cover_p"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_study"
-                    },
-                    {
-                      "entity": "sensor.cover_m_energy_study"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.study_cover_t"
-                    },
-                    {
-                      "entity": "sensor.study_cover_talarm"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.luce_studio_p"
-                    },
-                    {
-                      "entity": "sensor.d_energy_luce_studio"
-                    },
-                    {
-                      "entity": "sensor.m_energy_luce_studio"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.faretti_studio_p"
-                    },
-                    {
-                      "entity": "sensor.d_energy_faretti_studio"
-                    },
-                    {
-                      "entity": "sensor.m_energy_faretti_studio"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.luci_studio_t"
-                    },
-                    {
-                      "entity": "sensor.luci_studio_talarm"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "sensor",
-                  "entity": "sensor.hvac_study_room_temperature",
-                  "graph": "line",
-                  "name": "Temperatura"
-                },
-                {
-                  "type": "thermostat",
-                  "entity": "climate.hvac_study",
-                  "name": "Climatizzatore"
-                },
-                {
-                  "type": "entity",
-                  "entity": "input_select.hvac_study_hvane",
-                  "name": "Deflettori orizzontali"
-                }
-              ]
-            },
-            {
-              "type": "picture-elements",
-              "elements": [
-                {
-                  "type": "state-badge",
-                  "entity": "sensor.hvac_study_room_temperature",
-                  "tap_action": {
-                    "action": "navigate",
-                    "navigation_path": "/lovelace/studio"
-                  },
-                  "style": {
-                    "top": "20%",
-                    "left": "47%",
-                    "color": "rgba(0,0,0,0)"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.luce_studio",
-                  "style": {
-                    "top": "52%",
-                    "left": "45%"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.faretti_studio",
-                  "style": {
-                    "top": "70%",
-                    "left": "58%"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "icon": "mdi:led-strip-variant",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.led_desk",
-                  "style": {
-                    "top": "13.5%",
-                    "left": "55%",
-                    "transform": "scale(0.9,0.9)"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "entity": "cover.study",
-                  "style": {
-                    "top": "31%",
-                    "left": "77%"
-                  }
-                }
-              ],
-              "image": "local/study.png"
-            },
-            {
-              "type": "light",
-              "entity": "light.led_desk",
-              "icon": "mdi:led-strip-variant"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "path": "tommaso",
-          "panel": false,
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "icon": "mdi:human-child",
-          "badges": [],
-          "cards": [
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "group.luci_tommaso",
-                  "icon": "hass:lightbulb",
-                  "icon_height": "36px"
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "cover.tommy"
-                    }
-                  ]
-                },
-                {
-                  "type": "gauge",
-                  "entity": "sensor.tommy_cover_position",
-                  "min": 0,
-                  "max": 100,
-                  "unit": "%",
-                  "name": "Tapparelle"
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.tommy_cover_p"
-                    },
-                    {
-                      "entity": "sensor.cover_d_energy_tommy"
-                    },
-                    {
-                      "entity": "sensor.cover_m_energy_tommy"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
-                      "entity": "sensor.tommy_cover_t"
-                    },
-                    {
-                      "entity": "sensor.tommy_cover_talarm"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "sensor",
-                  "entity": "sensor.hvac_tommy_room_temperature",
-                  "graph": "line",
-                  "name": "Temperatura"
-                },
-                {
-                  "type": "thermostat",
-                  "entity": "climate.hvac_tommy",
-                  "name": "Climatizzatore"
-                },
-                {
-                  "type": "entity",
-                  "entity": "input_select.hvac_tommy_hvane",
-                  "name": "Deflettori orizzontali"
-                }
-              ]
-            },
-            {
-              "type": "picture-elements",
-              "elements": [
-                {
-                  "type": "state-icon",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "entity": "light.tommaso",
-                  "style": {
-                    "top": "49%",
-                    "left": "48%"
-                  }
-                },
-                {
-                  "type": "state-badge",
-                  "entity": "sensor.hvac_tommy_room_temperature",
-                  "tap_action": {
-                    "action": "navigate",
-                    "navigation_path": "/lovelace/camera_tommaso"
-                  },
-                  "style": {
-                    "top": "40%",
-                    "left": "87%",
-                    "color": "rgba(0,0,0,0)"
-                  }
-                },
-                {
-                  "type": "state-icon",
-                  "entity": "cover.tommy",
-                  "style": {
-                    "top": "13%",
-                    "left": "77%"
-                  }
-                }
-              ],
-              "image": "local/childroom.png"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "path": "h-and-t",
+          "theme": "Backend-selected",
+          "path": "tmp",
           "visible": [],
-          "panel": true,
-          "icon": "mdi:google-maps",
-          "badges": [],
+          "icon": "mdi:sun-clock",
           "cards": [
             {
-              "type": "map",
+              "type": "entities",
+              "entities": [
+                "sun.sun"
+              ]
+            },
+            {
+              "type": "history-graph",
               "entities": [
                 {
-                  "entity": "device_tracker.iphone_di_salvatore"
-                },
-                {
-                  "entity": "device_tracker.iphone_di_gloria"
-                },
-                {
-                  "entity": "zone.colle_grosso"
-                },
-                {
-                  "entity": "zone.colle_martino"
-                },
-                {
-                  "entity": "zone.home"
-                },
-                {
-                  "entity": "zone.work"
-                },
-                {
-                  "entity": "zone.school"
+                  "entity": "sensor.sun_elevation"
                 }
               ],
-              "hours_to_show": 24
+              "hours_to_show": 48
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "input_number.elevation_l1"
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "input_number.elevation_l2"
+              ]
             }
           ]
         }

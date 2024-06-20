@@ -95,33 +95,39 @@
   qos: 0
 
 - name: "tommy"
-  command_topic: "shellies/shelly25-tapp_Tommaso/roller/0/command"
-  position_topic: "shellies/shelly25-tapp_Tommaso/roller/0/pos"
-  set_position_topic: "shellies/shelly25-tapp_Tommaso/roller/0/command/pos"
-  # availability_topic: "shellies/shelly25-tapp_Tommaso/online"
-  # payload_available: "true"
-  # payload_not_available: "false"
-  retain: false
-  payload_open: "open"
-  payload_close: "close"
-  payload_stop: "stop"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_tommaso/status/cover:0"
+  value_template: "{{ value_json.state }}"
+  state_opening: "opening"
+  state_closing: "closing"
+  state_stopped: "stopped"
+  state_open: "open"
+  state_closed: "closed"
+  position_topic: "shelliesgen2/shellyplus2pm-tapp_tommaso/status/cover:0"
+  position_template: "{{ value_json.current_pos | int }}"
   position_open: 100
   position_closed: 0
-  optimistic: false
-  qos: 0
+  command_topic: "shelliesgen2/shellyplus2pm-tapp_tommaso/rpc"
+  payload_open: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_tommaso","method":"Cover.Open","params":{"id":0}}'
+  payload_close: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_tommaso","method":"Cover.Close","params":{"id":0}}'
+  payload_stop: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_tommaso","method":"Cover.Stop","params":{"id":0}}'
+  set_position_topic: "shelliesgen2/shellyplus2pm-tapp_tommaso/rpc"
+  set_position_template: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_tommaso","method":"Cover.GoToPosition","params":{"id":0,"pos":{{ position }}}}'
 
 - name: "bathroom"
-  command_topic: "shellies/shelly25-tapp_bagnetto/roller/0/command"
-  position_topic: "shellies/shelly25-tapp_bagnetto/roller/0/pos"
-  set_position_topic: "shellies/shelly25-tapp_bagnetto/roller/0/command/pos"
-  # availability_topic: "shellies/shelly25-tapp_bagnetto/online"
-  # payload_available: "true"
-  # payload_not_available: "false"
-  retain: false
-  payload_open: "open"
-  payload_close: "close"
-  payload_stop: "stop"
+  state_topic: "shelliesgen2/shellyplus2pm-tapp_bagnetto/status/cover:0"
+  value_template: "{{ value_json.state }}"
+  state_opening: "opening"
+  state_closing: "closing"
+  state_stopped: "stopped"
+  state_open: "open"
+  state_closed: "closed"
+  position_topic: "shelliesgen2/shellyplus2pm-tapp_bagnetto/status/cover:0"
+  position_template: "{{ value_json.current_pos | int }}"
   position_open: 100
   position_closed: 0
-  optimistic: false
-  qos: 0
+  command_topic: "shelliesgen2/shellyplus2pm-tapp_bagnetto/rpc"
+  payload_open: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_bagnetto","method":"Cover.Open","params":{"id":0}}'
+  payload_close: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_bagnetto","method":"Cover.Close","params":{"id":0}}'
+  payload_stop: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_bagnetto","method":"Cover.Stop","params":{"id":0}}'
+  set_position_topic: "shelliesgen2/shellyplus2pm-tapp_bagnetto/rpc"
+  set_position_template: '{"id":0,"src":"shelliesgen2/shellyplus2pm-tapp_bagnetto","method":"Cover.GoToPosition","params":{"id":0,"pos":{{ position }}}}'

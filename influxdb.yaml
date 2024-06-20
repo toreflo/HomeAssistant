@@ -56,7 +56,4 @@ exclude:
     - switch.ovunque*
     - sensor.this_device_*
     - switch.this_device_*
-    - sensor.network_in_eth0
-    - sensor.network_out_eth0
     - sensor.*random*
-    - sensor.*cover_position

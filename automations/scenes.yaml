@@ -1,0 +1,45 @@
+- alias: Lucina notte ON
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /5
+  condition:
+  - condition: state
+    entity_id: person.salvatore
+    state: home
+  - condition: state
+    entity_id: switch.lucina_notte
+    state: 'off'
+  - condition: or
+    conditions:
+      - condition: time
+        after: '22:00:00'
+      - condition: time
+        before: '03:00:00'
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.lucina_notte
+  mode: single
+
+- alias: Lucina notte OFF
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /5
+  condition:
+  - condition: state
+    entity_id: switch.lucina_notte
+    state: 'on'
+  - condition: template
+    value_template: '{{ state_attr("cover.bedroom", "current_position") > 20}}'
+  - condition: time
+    after: '07:00:00'
+    before: '15:00:00'
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.lucina_notte
+  mode: single
