@@ -45,3 +45,8 @@
     sun_elevation:
       unit_of_measurement: "°"
       value_template: "{{ state_attr('sun.sun', 'elevation') | float }}"
+
+- platform: template
+  sensors:
+    wifi_conn_salvatore:
+      value_template: !secret wifi_conn_salvatore

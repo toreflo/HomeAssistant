@@ -188,19 +188,72 @@
                   ]
                 },
                 {
-                  "show_name": false,
-                  "show_icon": true,
-                  "type": "button",
-                  "tap_action": {
-                    "action": "call-service",
-                    "service": "cover.stop_cover",
-                    "service_data": {
-                      "entity_id": "cover.all"
+                  "square": false,
+                  "type": "grid",
+                  "cards": [
+                    {
+                      "show_name": false,
+                      "show_icon": true,
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.stop_cover",
+                        "service_data": {
+                          "entity_id": "cover.all"
+                        }
+                      },
+                      "entity": "cover.all",
+                      "icon_height": "25px",
+                      "icon": "mdi:stop"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "cover.set_cover_position",
+                        "service_data": {
+                          "entity_id": "cover.all",
+                          "position": 25
+                        }
+                      },
+                      "show_name": false,
+                      "show_icon": true,
+                      "show_state": false,
+                      "icon": "mdi:format-line-weight",
+                      "icon_height": "30px"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.turn_on",
+                        "service_data": {
+                          "entity_id": "script.goodnight"
+                        }
+                      },
+                      "entity": "script.goodnight",
+                      "icon": "mdi:sleep",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "show_name": false
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "script.turn_on",
+                        "service_data": {
+                          "entity_id": "script.exit"
+                        }
+                      },
+                      "entity": "script.exit",
+                      "icon": "mdi:home-export-outline",
+                      "icon_height": "30px",
+                      "name": " ",
+                      "show_name": false
                     }
-                  },
-                  "entity": "cover.all",
-                  "icon_height": "25px",
-                  "icon": "mdi:stop"
+                  ],
+                  "columns": 4
                 },
                 {
                   "square": false,
@@ -268,7 +321,8 @@
                       "show_icon": true,
                       "type": "button",
                       "tap_action": {
-                        "action": "none"
+                        "action": "navigate",
+                        "navigation_path": "sala"
                       },
                       "icon": "",
                       "icon_height": "30px",
@@ -369,7 +423,8 @@
                       "show_icon": true,
                       "type": "button",
                       "tap_action": {
-                        "action": "none"
+                        "action": "navigate",
+                        "navigation_path": "cuci"
                       },
                       "icon": "",
                       "icon_height": "30px",
@@ -383,7 +438,8 @@
                       "show_icon": true,
                       "type": "button",
                       "tap_action": {
-                        "action": "none"
+                        "action": "navigate",
+                        "navigation_path": "/lovelace/cucina"
                       },
                       "icon": "",
                       "icon_height": "30px",
@@ -615,7 +671,8 @@
                       "show_icon": true,
                       "type": "button",
                       "tap_action": {
-                        "action": "none"
+                        "action": "navigate",
+                        "navigation_path": "/lovelace/camera"
                       },
                       "icon": "",
                       "icon_height": "30px",
@@ -847,7 +904,8 @@
                       "show_icon": true,
                       "type": "button",
                       "tap_action": {
-                        "action": "none"
+                        "action": "navigate",
+                        "navigation_path": "/lovelace/studio"
                       },
                       "icon": "",
                       "icon_height": "30px",
@@ -964,7 +1022,8 @@
                       "show_icon": true,
                       "type": "button",
                       "tap_action": {
-                        "action": "none"
+                        "action": "navigate",
+                        "navigation_path": "/lovelace/tommaso"
                       },
                       "icon": "",
                       "icon_height": "30px",
@@ -1515,25 +1574,32 @@
                   "columns": 4,
                   "cards": [
                     {
+                      "graph": "line",
                       "type": "sensor",
                       "entity": "sensor.hvac_living_room_temperature",
-                      "graph": "line"
+                      "detail": 1,
+                      "name": "Sala"
                     },
                     {
+                      "graph": "line",
                       "type": "sensor",
                       "entity": "sensor.hvac_bedroom_room_temperature",
-                      "graph": "line"
+                      "detail": 1,
+                      "name": "Camera"
                     },
                     {
+                      "graph": "line",
                       "type": "sensor",
                       "entity": "sensor.hvac_study_room_temperature",
-                      "graph": "line"
+                      "detail": 1,
+                      "name": "Studio"
                     },
                     {
+                      "graph": "line",
                       "type": "sensor",
                       "entity": "sensor.hvac_tommy_room_temperature",
-                      "graph": "line",
-                      "name": "Tommy"
+                      "name": "Bimbi",
+                      "detail": 1
                     }
                   ]
                 }
@@ -1542,73 +1608,176 @@
           ]
         },
         {
-          "icon": "mdi:cctv",
+          "icon": "mdi:shield-home",
           "visible": [
             {
               "user": "f2983a1b4e6e44798a04a30a5437e107"
             }
           ],
-          "badges": [],
           "cards": [
             {
               "show_state": false,
               "show_name": false,
               "camera_view": "live",
               "type": "picture-entity",
-              "entity": "camera.tapo_c110_1080p",
+              "entity": "camera.tapo_1080p",
               "camera_image": "camera.tapo_c110",
               "name": "1080p"
             },
             {
               "type": "entities",
               "entities": [
-                "lock.portone_palazzo"
+                {
+                  "entity": "lock.opener_lock"
+                }
+              ],
+              "show_header_toggle": true
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "lock.nuki_porta_di_casa_lock"
+              ]
+            },
+            {
+              "type": "glance",
+              "entities": [
+                {
+                  "entity": "binary_sensor.nuki_bridge_connected"
+                },
+                {
+                  "entity": "sensor.opener_state"
+                },
+                {
+                  "entity": "binary_sensor.opener_battery_critical"
+                },
+                {
+                  "entity": "binary_sensor.opener_locked"
+                }
+              ]
+            },
+            {
+              "type": "glance",
+              "entities": [
+                {
+                  "entity": "sensor.nuki_porta_di_casa_battery"
+                },
+                {
+                  "entity": "binary_sensor.nuki_porta_di_casa_battery_charging"
+                },
+                {
+                  "entity": "binary_sensor.nuki_porta_di_casa_battery_critical"
+                },
+                {
+                  "entity": "sensor.nuki_porta_di_casa_state"
+                }
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "sensor.motioneye_media_size"
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.tapo_1080p_motion_detection"
+                },
+                {
+                  "entity": "switch.tapo_1080p_movies"
+                },
+                {
+                  "entity": "automation.motion_detection"
+                }
               ]
             }
           ]
         },
         {
-          "icon": "mdi:music",
+          "title": "Stanze",
+          "path": "stanze",
+          "icon": "mdi:view-dashboard",
+          "cards": [],
+          "type": "sections",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/sala"
+                  },
+                  "icon": "mdi:sofa",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/cucina"
+                  },
+                  "icon": "mdi:silverware-fork-knife",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/camera"
+                  },
+                  "icon": "mdi:bed",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/studio"
+                  },
+                  "icon": "mdi:desk",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/lovelace/tommaso"
+                  },
+                  "icon": "mdi:human-child",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                }
+              ],
+              "title": "Stanze"
+            }
+          ],
+          "max_columns": 4,
           "visible": [
             {
               "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "badges": [],
-          "cards": [
-            {
-              "type": "custom:mini-media-player",
-              "entity": "media_player.echo_dot_cucina",
-              "group": false,
-              "artwork": "full-cover",
-              "tts": {
-                "platform": "alexa",
-                "enity_id": "media_player.echo_dot_cucina"
-              }
-            },
-            {
-              "type": "custom:mini-media-player",
-              "entity": "media_player.echo_dot_black",
-              "group": false,
-              "artwork": "full-cover",
-              "tts": {
-                "platform": "alexa",
-                "enity_id": "media_player.echo_dot_black"
-              }
-            },
-            {
-              "type": "custom:mini-media-player",
-              "entity": "media_player.multi_room",
-              "group": false,
-              "artwork": "full-cover",
-              "tts": {
-                "platform": "alexa",
-                "enity_id": "media_player.multi_room"
-              }
-            },
-            {
-              "type": "media-control",
-              "entity": "media_player.samsung_q95t"
             }
           ]
         },
@@ -1892,186 +2061,6 @@
           ]
         },
         {
-          "icon": "mdi:sprout",
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ],
-          "badges": [],
-          "cards": [
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "entity": "input_boolean.irrigation_active",
-                      "icon_height": "40px",
-                      "name": "Sched. auto",
-                      "icon": "mdi:history"
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "input_boolean.toggle",
-                        "service_data": {
-                          "entity_id": "input_boolean.irrigation_freq_minutes"
-                        }
-                      },
-                      "entity": "binary_sensor.irrigation_freq_mode",
-                      "show_name": true,
-                      "icon_height": "40px",
-                      "name": "Freq. mode",
-                      "show_state": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "toggle"
-                      },
-                      "entity": "script.irrigation",
-                      "name": "Avvia script",
-                      "icon_height": "40px",
-                      "icon": "mdi:watering-can",
-                      "show_state": false
-                    },
-                    {
-                      "type": "button",
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "switch.toggle",
-                        "service_data": {
-                          "entity_id": "switch.presa_balcone"
-                        }
-                      },
-                      "entity": "binary_sensor.pump",
-                      "show_name": true,
-                      "icon_height": "40px",
-                      "name": "Pompa"
-                    }
-                  ]
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "input_number.irrigation_period",
-                      "type": "custom:numberbox-card",
-                      "icon": "mdi:timelapse",
-                      "name": "Frequenza",
-                      "unit": ""
-                    },
-                    {
-                      "entity": "input_number.irrigation_duration",
-                      "type": "custom:numberbox-card",
-                      "icon": "mdi:timelapse",
-                      "name": "Durata",
-                      "unit": "time"
-                    },
-                    {
-                      "entity": "input_datetime.last_irrigation",
-                      "name": "Ultima irrigazione effettuata"
-                    }
-                  ]
-                },
-                {
-                  "type": "button",
-                  "tap_action": {
-                    "action": "none"
-                  },
-                  "icon_height": "1px",
-                  "name": "Circa 100ml in 10 minuti per ogni gocciolatoio",
-                  "hold_action": {
-                    "action": "none"
-                  }
-                }
-              ],
-              "columns": 1,
-              "square": false
-            }
-          ]
-        },
-        {
-          "title": "Stanze",
-          "path": "stanze",
-          "icon": "mdi:view-dashboard",
-          "cards": [],
-          "type": "sections",
-          "sections": [
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "tap_action": {
-                    "action": "navigate",
-                    "navigation_path": "/lovelace/sala"
-                  },
-                  "icon": "mdi:sofa",
-                  "hold_action": {
-                    "action": "none"
-                  }
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "tap_action": {
-                    "action": "navigate",
-                    "navigation_path": "/lovelace/cucina"
-                  },
-                  "icon": "mdi:silverware-fork-knife",
-                  "hold_action": {
-                    "action": "none"
-                  }
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "tap_action": {
-                    "action": "navigate",
-                    "navigation_path": "/lovelace/tommaso"
-                  },
-                  "icon": "mdi:human-child",
-                  "hold_action": {
-                    "action": "none"
-                  }
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "tap_action": {
-                    "action": "navigate",
-                    "navigation_path": "/lovelace/studio"
-                  },
-                  "icon": "mdi:desk",
-                  "hold_action": {
-                    "action": "none"
-                  }
-                }
-              ],
-              "title": "Stanze"
-            }
-          ],
-          "max_columns": 4,
-          "visible": [
-            {
-              "user": "f2983a1b4e6e44798a04a30a5437e107"
-            }
-          ]
-        },
-        {
           "icon": "mdi:server",
           "visible": [
             {
@@ -2193,6 +2182,19 @@
                       "detail": 1
                     }
                   ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "graph": "line",
+                      "hours_to_show": 24,
+                      "type": "sensor",
+                      "entity": "sensor.motioneye_media_size",
+                      "detail": 1,
+                      "name": "motioneye media size"
+                    }
+                  ]
                 }
               ]
             },
@@ -2312,6 +2314,158 @@
                   ]
                 }
               ]
+            }
+          ]
+        },
+        {
+          "icon": "mdi:music",
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "badges": [],
+          "cards": [
+            {
+              "type": "custom:mini-media-player",
+              "entity": "media_player.echo_dot_cucina",
+              "group": false,
+              "artwork": "full-cover",
+              "tts": {
+                "platform": "alexa",
+                "enity_id": "media_player.echo_dot_cucina"
+              }
+            },
+            {
+              "type": "custom:mini-media-player",
+              "entity": "media_player.echo_dot_black",
+              "group": false,
+              "artwork": "full-cover",
+              "tts": {
+                "platform": "alexa",
+                "enity_id": "media_player.echo_dot_black"
+              }
+            },
+            {
+              "type": "custom:mini-media-player",
+              "entity": "media_player.multi_room",
+              "group": false,
+              "artwork": "full-cover",
+              "tts": {
+                "platform": "alexa",
+                "enity_id": "media_player.multi_room"
+              }
+            },
+            {
+              "type": "media-control",
+              "entity": "media_player.samsung_q95t"
+            }
+          ]
+        },
+        {
+          "icon": "mdi:sprout",
+          "visible": [
+            {
+              "user": "f2983a1b4e6e44798a04a30a5437e107"
+            }
+          ],
+          "badges": [],
+          "cards": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "input_boolean.irrigation_active",
+                      "icon_height": "40px",
+                      "name": "Sched. auto",
+                      "icon": "mdi:history"
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "input_boolean.toggle",
+                        "service_data": {
+                          "entity_id": "input_boolean.irrigation_freq_minutes"
+                        }
+                      },
+                      "entity": "binary_sensor.irrigation_freq_mode",
+                      "show_name": true,
+                      "icon_height": "40px",
+                      "name": "Freq. mode",
+                      "show_state": false
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "toggle"
+                      },
+                      "entity": "script.irrigation",
+                      "name": "Avvia script",
+                      "icon_height": "40px",
+                      "icon": "mdi:watering-can",
+                      "show_state": false
+                    },
+                    {
+                      "type": "button",
+                      "tap_action": {
+                        "action": "call-service",
+                        "service": "switch.toggle",
+                        "service_data": {
+                          "entity_id": "switch.presa_balcone"
+                        }
+                      },
+                      "entity": "binary_sensor.pump",
+                      "show_name": true,
+                      "icon_height": "40px",
+                      "name": "Pompa"
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "input_number.irrigation_period",
+                      "type": "custom:numberbox-card",
+                      "icon": "mdi:timelapse",
+                      "name": "Frequenza",
+                      "unit": ""
+                    },
+                    {
+                      "entity": "input_number.irrigation_duration",
+                      "type": "custom:numberbox-card",
+                      "icon": "mdi:timelapse",
+                      "name": "Durata",
+                      "unit": "time"
+                    },
+                    {
+                      "entity": "input_datetime.last_irrigation",
+                      "name": "Ultima irrigazione effettuata"
+                    }
+                  ]
+                },
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "none"
+                  },
+                  "icon_height": "1px",
+                  "name": "Circa 100ml in 10 minuti per ogni gocciolatoio",
+                  "hold_action": {
+                    "action": "none"
+                  }
+                }
+              ],
+              "columns": 1,
+              "square": false
             }
           ]
         },

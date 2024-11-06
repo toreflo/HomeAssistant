@@ -1,0 +1,559 @@
+- id: '1718890995973'
+  alias: Censimento stati MQTT
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/tasmotas/POWER
+      payload: ''
+      retain: false
+  mode: single
+- id: '1718891091770'
+  alias: Horizontal Vane Get - Camera
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: climate.hvac_bedroom
+    attribute: vane_horizontal
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.hvac_bedroom_hvane
+      option: '{{state_attr("climate.hvac_bedroom", "vane_horizontal") }}'
+  mode: single
+- id: '1718891118044'
+  alias: Horizontal Vane Get - Camera Tommaso
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: climate.hvac_tommy
+    attribute: vane_horizontal
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.hvac_tommy_hvane
+      option: '{{state_attr("climate.hvac_tommy", "vane_horizontal") }}'
+  mode: single
+- id: '1718891127441'
+  alias: Horizontal Vane Get - Sala
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: climate.hvac_living
+    attribute: vane_horizontal
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.hvac_living_hvane
+      option: '{{state_attr("climate.hvac_living", "vane_horizontal") }}'
+  mode: single
+- id: '1718891138391'
+  alias: Horizontal Vane Get - Studio
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: climate.hvac_study
+    attribute: vane_horizontal
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.hvac_study_hvane
+      option: '{{state_attr("climate.hvac_study", "vane_horizontal") }}'
+  mode: single
+- id: '1718891145021'
+  alias: Horizontal Vane Set - Camera
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_select.hvac_bedroom_hvane
+  condition: []
+  action:
+  - service: melcloud.set_vane_horizontal
+    data:
+      entity_id: climate.hvac_bedroom
+      position: '{{ states("input_select.hvac_bedroom_hvane") }}'
+  mode: single
+- id: '1718891160441'
+  alias: Horizontal Vane Set - Camera Tommaso
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_select.hvac_tommy_hvane
+  condition: []
+  action:
+  - service: melcloud.set_vane_horizontal
+    data:
+      entity_id: climate.hvac_tommy
+      position: '{{ states("input_select.hvac_tommy_hvane") }}'
+  mode: single
+- id: '1718891169585'
+  alias: Horizontal Vane Set - Sala
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_select.hvac_living_hvane
+  condition: []
+  action:
+  - service: melcloud.set_vane_horizontal
+    data:
+      entity_id: climate.hvac_living
+      position: '{{ states("input_select.hvac_living_hvane") }}'
+  mode: single
+- id: '1718891179462'
+  alias: Horizontal Vane Set - Studio
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_select.hvac_study_hvane
+  condition: []
+  action:
+  - service: melcloud.set_vane_horizontal
+    data:
+      entity_id: climate.hvac_study
+      position: '{{ states("input_select.hvac_study_hvane") }}'
+  mode: single
+- id: '1718891192527'
+  alias: Irrigazione
+  description: ''
+  trigger:
+  - platform: time_pattern
+    seconds: /10
+  condition:
+  - condition: template
+    value_template: '{{  (states("input_boolean.irrigation_active") == "on") and (as_timestamp(now())
+      | int >= as_timestamp(states("input_datetime.last_irrigation")) | int + (states("input_number.irrigation_period")
+      | int * 60 * (1 if is_state("input_boolean.irrigation_freq_minutes","on") else
+      60))) }}'
+  action:
+  - service: script.turn_on
+    data:
+      entity_id: script.irrigation
+  mode: single
+- id: '1718891217968'
+  alias: Lucina notte ON
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /5
+  condition:
+  - condition: state
+    entity_id: person.salvatore
+    state: home
+  - condition: state
+    entity_id: switch.lucina_notte
+    state: 'off'
+  - condition: or
+    conditions:
+    - condition: time
+      after: '21:30:00'
+    - condition: time
+      before: 03:00:00
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.lucina_notte
+  mode: single
+- id: '1718891235869'
+  alias: Restart DuckDNS
+  description: ''
+  trigger:
+  - platform: time
+    at: 03:10:00
+  condition: []
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_duckdns
+  mode: single
+- id: '1718891268802'
+  alias: Restart NGINX
+  description: ''
+  trigger:
+  - platform: time
+    at: 03:00:00
+  condition: []
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_nginx_proxy
+  mode: single
+- id: '1718891277667'
+  alias: Restart Node-RED
+  description: ''
+  trigger:
+  - platform: time
+    at: 04:00:00
+  condition: []
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: a0d7b954_nodered
+  mode: single
+- id: '1718891284380'
+  alias: Shelly i3 cucina
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: shellies/shellyi3-cucina/input_event/0
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json.event == ''S'' or trigger.payload_json.event
+      == ''SS'' or trigger.payload_json.event == ''L'' }}'
+  action:
+  - service: logbook.log
+    data:
+      name: automation Sheylly i3 cucina
+      message: Payload is {{ trigger.payload_json.event }}, count = {{ trigger.payload_json.event_cnt
+        }}
+  - service_template: "{% if trigger.payload_json.event == \"SL\" %}\n  script.turn_on\n{%
+      elif trigger.payload_json.event == \"L\" %}\n  {% if states('group.luci_cucina')
+      == 'on' %}\n    homeassistant.turn_off\n  {% else %}\n    homeassistant.turn_on\n
+      \ {% endif %}\n{% else %}\n  light.toggle\n{% endif %}\n"
+    data_template:
+      entity_id: "{% if trigger.payload_json.event == \"S\" %}\n  light.led_pensili\n{%
+        elif trigger.payload_json.event == \"SS\" %}\n  light.ingresso\n{% elif trigger.payload_json.event
+        == \"L\" %}\n  group.luci_cucina\n{% else %}\n  {% if states('group.luci_cucina')
+        == 'on' %}\n    script.living\n  {% else %}\n    script.kitchen\n  {% endif
+        %}\n{% endif %}\n"
+  mode: single
+- id: '1718891445865'
+  alias: Notifica portone palazzo sbloccato
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - lock.opener_lock
+    to: unlocked
+  condition: []
+  action:
+  - service: notify.mobile_app_iphone14pro_di_salvatore
+    metadata: {}
+    data:
+      title: Palazzo
+      message: Portone sbloccato
+  mode: single
+- id: '1718971813890'
+  alias: Tapparelle camera aperte
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - cover.bedroom
+    attribute: current_position
+    above: 20
+  condition:
+  - condition: time
+    after: 07:00:00
+    before: '12:00:00'
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.lucina_notte
+  - service: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.flos_ariette
+  mode: single
+- id: '1719099014903'
+  alias: Motioneye - notifica dimensione cartella media
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: '0'
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.motioneye_media_size
+    above: 20000
+  action:
+  - service: notify.mobile_app_iphone14pro_di_salvatore
+    metadata: {}
+    data:
+      message: Dimensione media motioneye superiore alla soglia!
+      title: Attenzione!
+  mode: single
+- id: '1719099318996'
+  alias: Spazio disco in esaurimento
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.disk_use_percent
+    above: 25
+  condition: []
+  action:
+  - service: notify.mobile_app_iphone14pro_di_salvatore
+    metadata: {}
+    data:
+      message: Spazio disco in esaurimento. Disabilito salvataggio video di sorveglianza!
+      title: Allarme!
+  - service: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.tapo_1080p_movies
+  mode: single
+- id: '1719100544195'
+  alias: Motion detection - notifiche
+  description: ''
+  trigger:
+  - platform: webhook
+    allowed_methods:
+    - POST
+    - PUT
+    local_only: true
+    webhook_id: pippolino
+  condition: []
+  action:
+  - service: notify.mobile_app_iphone14pro_di_salvatore
+    metadata: {}
+    data:
+      message: Motion detected!
+  mode: single
+- id: '1719175689694'
+  alias: Tapparelle cucina aperte
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - cover.kitchen
+    attribute: current_position
+    above: 20
+  condition:
+  - condition: time
+    after: 07:00:00
+    before: '12:00:00'
+  action:
+  - service: light.turn_off
+    target:
+      entity_id:
+      - light.luce_penisola
+      - light.led_cucina_virtual
+    data: {}
+  mode: single
+- id: '1719175798003'
+  alias: Tapparelle sala aperte
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - cover.living
+    attribute: current_position
+    above: 20
+  - platform: numeric_state
+    entity_id:
+    - cover.living_big
+    attribute: current_position
+    above: 20
+  condition:
+  - condition: time
+    after: 07:00:00
+    before: '12:00:00'
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.led_divano
+      - light.flos_aim
+      - light.flos_ic_t2
+      - light.ingresso
+  mode: single
+- id: '1719175879278'
+  alias: Tapparelle studio aperte
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - cover.study
+    attribute: current_position
+    above: 20
+  condition:
+  - condition: time
+    after: 07:00:00
+    before: '12:00:00'
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.luce_studio
+      - light.faretti_studio
+  mode: single
+- id: '1719175927242'
+  alias: Tapparelle Tommaso aperte
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - cover.tommy
+    attribute: current_position
+    above: 20
+  condition:
+  - condition: time
+    after: 07:00:00
+    before: '12:00:00'
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.tommaso
+  mode: single
+- id: '1719176204111'
+  alias: Tapparelle bagnetto aperte
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - cover.bathroom
+    attribute: current_position
+    above: 20
+  condition:
+  - condition: time
+    after: 07:00:00
+    before: '12:00:00'
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.bagnetto
+  mode: single
+- id: '1719176373520'
+  alias: Motion detection - disattiva notifiche
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.wifi_conn_salvatore
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition: []
+  action:
+  - service: automation.turn_off
+    metadata: {}
+    data:
+      stop_actions: true
+    target:
+      entity_id: automation.motion_detection
+  - service: notify.mobile_app_iphone14pro_di_salvatore
+    metadata: {}
+    data:
+      message: Connessione a WiFi di casa
+      title: Connection info
+  mode: single
+- id: '1719176421187'
+  alias: Motion detection - attiva notifiche
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.wifi_conn_salvatore
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 30
+      seconds: 0
+  condition: []
+  action:
+  - service: automation.turn_on
+    target:
+      entity_id:
+      - automation.motion_detection
+    data: {}
+  - service: notify.mobile_app_iphone14pro_di_salvatore
+    metadata: {}
+    data:
+      title: Connection info
+      message: Disconnessione da WiFi di casa
+  mode: single
+- id: '1719216963304'
+  alias: Nuki - Stato Opener
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.opener_state
+    from: online
+  - platform: state
+    entity_id:
+    - binary_sensor.opener_battery_critical
+    from: 'off'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphone14pro_di_salvatore
+    metadata: {}
+    data:
+      message: Verifica lo stato di connessione e/o di carica della batteria dell'opener
+      title: Nuki Opener
+  mode: single
+- id: '1719217521301'
+  alias: Nuki - Stato Bridge
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.nuki_bridge_connected
+    from: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_iphone14pro_di_salvatore
+    metadata: {}
+    data:
+      message: Verifica lo stato di connessione del Nuki Bridge
+      title: Nuki Bridge
+  mode: single
+- id: '1720364681509'
+  alias: Nuki Smart Lock - Battery alarm
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.nuki_porta_di_casa_battery_critical
+    to: 'on'
+  - platform: numeric_state
+    entity_id:
+    - sensor.nuki_porta_di_casa_battery
+    below: 10
+  condition: []
+  action:
+  - service: notify.mobile_app_iphone14pro_di_salvatore
+    metadata: {}
+    data:
+      message: 'Attenzione: controllare lo stato della batteria!'
+      title: Nuki Smart Lock
+  mode: single
+- id: '1720364960599'
+  alias: Nuki Smart Lock - Battery check
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.nuki_porta_di_casa_battery
+    below: 30
+  condition:
+  - type: is_battery_level
+    condition: device
+    device_id: 3a61987fbb77dc503ae9c68ece6ad386
+    entity_id: 7c3828e8211e8bf41b980500798a432e
+    domain: sensor
+    above: 1
+  action:
+  - service: notify.mobile_app_iphone14pro_di_salvatore
+    metadata: {}
+    data:
+      message: Carica della batteria inferiore al 30%
+      title: Nuki Smart Lock
+  mode: single

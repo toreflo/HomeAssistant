@@ -12,7 +12,7 @@ tts:
 
 recorder: !include recorder.yaml
 influxdb: !include influxdb.yaml
-automation: !include_dir_merge_list automations/
+automation: !include automations.yaml #!include_dir_merge_list automations/ >>>> per utilizzare il tool grafico di scrittura delle automazioni
 sensor: !include_dir_merge_list sensors/
 script: !include_dir_merge_named scripts/
 scene: !include scenes.yaml
@@ -24,11 +24,7 @@ input_select: !include input_selects.yaml
 input_number: !include input_numbers.yaml
 utility_meter: !include utility_meters.yaml
 group: !include groups.yaml
-
-input_datetime:
-  last_irrigation:
-    has_date: true
-    has_time: true
+command_line: !include command_lines.yaml
 
 mqtt:
   light: !include_dir_merge_list mqtt/light/
@@ -48,10 +44,15 @@ api:
 alexa:
   smart_home:
 
-camera:
-  - platform: ffmpeg
-    name: tapo C110 1080P
-    input: !secret tapo_c110_url_1080p
+#camera:
+#  - platform: ffmpeg
+#    name: tapo C110 1080P
+#    input: !secret tapo_c110_url_1080p
 
 logger:
   default: info
+
+input_datetime:
+  last_irrigation:
+    has_date: true
+    has_time: true

@@ -1,0 +1,4 @@
+- sensor:
+    name: motioneye media size
+    command: "du -sm /media/motioneye | awk '{print $1}'"
+    unit_of_measurement: MB

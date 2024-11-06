@@ -10,11 +10,12 @@ include:
   domains:
     - sensor
   entities:
-    - device_tracker.iphone_di_salvatore
+    - device_tracker.iphone14pro_di_salvatore
     - device_tracker.iphone_di_gloria
-    - binary_sensor.rpi_power_status
     - switch.alimentatore_luce_cucina
     - binary_sensor.pump
+    - person.salvatore
+    - person.gloria
 exclude:
   entities:
     - sensor.date
@@ -47,13 +48,8 @@ exclude:
     - sensor.weather_*
     - sensor.iphone*
     - sensor.salvatore_s_*
-    - switch.salvatore_s_*
     - sensor.*echo_dot_*
-    - switch.*echo_dot_*
     - sensor.multi_room*
-    - switch.multi_room*
     - sensor.ovunque*
-    - switch.ovunque*
     - sensor.this_device_*
-    - switch.this_device_*
     - sensor.*random*
