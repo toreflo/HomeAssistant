@@ -274,7 +274,7 @@
   condition:
   - condition: numeric_state
     entity_id: sensor.motioneye_media_size
-    above: 20000
+    above: 15000
   action:
   - service: notify.mobile_app_iphone14pro_di_salvatore
     metadata: {}
@@ -438,7 +438,7 @@
     to: 'on'
     for:
       hours: 0
-      minutes: 5
+      minutes: 2
       seconds: 0
   condition: []
   action:
@@ -463,8 +463,8 @@
     - sensor.wifi_conn_salvatore
     to: 'off'
     for:
-      hours: 0
-      minutes: 30
+      hours: 1
+      minutes: 0
       seconds: 0
   condition: []
   action:
@@ -542,7 +542,7 @@
   - platform: numeric_state
     entity_id:
     - sensor.nuki_porta_di_casa_battery
-    below: 30
+    below: 50
   condition:
   - type: is_battery_level
     condition: device
@@ -554,6 +554,6 @@
   - service: notify.mobile_app_iphone14pro_di_salvatore
     metadata: {}
     data:
-      message: Carica della batteria inferiore al 30%
+      message: Carica della batteria inferiore al 50%. Ricaricala al più presto!
       title: Nuki Smart Lock
   mode: single
